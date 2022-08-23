@@ -2,7 +2,11 @@
   <section class="signupdetails">
     <h1 class="titlename">Signup</h1>
     <div class="container">
-      <form class="signup-form row" #signupform="ngForm">
+      <form
+        class="signup-form row"
+        #signupform="ngForm"
+        (ngSubmit)="onSignup()"
+      >
         <div class="form-group col-lg-6">
           <div class="form-field">
             <input
@@ -144,13 +148,29 @@
         </div>
         <div class="form-group col-lg-6">
           <div class="form-field">
-            <select class="input-text" name="">
-              <option value="1">- select -</option>
-              <option value="2">Partner</option>
-              <option value="3">Finance</option>
-              <option value="4">Admin</option>
+            <select
+              class="input-text"
+              id="position"
+              name="position"
+              required
+              [(ngModel)]="signupData.position"
+              #posts="ngModel"
+            >
+              <option value="">- select -</option>
+              <option *ngFor="let post of positions" [value]="post">
+                {{ post }}
+              </option>
             </select>
             <label class="label">position</label>
+          </div>
+          <div>
+            <small
+              for="position"
+              id="positionfeedback"
+              class="text-danger"
+              [class.invisible]="posts.valid || posts.untouched"
+              >*Please select a position</small
+            >
           </div>
         </div>
         <div class="col-lg-6 form-group">

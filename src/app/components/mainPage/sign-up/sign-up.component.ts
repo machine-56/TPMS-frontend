@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent implements OnInit {
+  positions = ['Partner', 'Finance', 'Admin'];
   signupData = {
     fname: '',
     lname: '',
@@ -18,4 +19,7 @@ export class SignUpComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  onSignup() {
+    console.log(this.signupData);
+  }
 }
