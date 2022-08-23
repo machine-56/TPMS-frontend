@@ -1,0 +1,13 @@
+ul .nav-item a {
+    font-weight: 600;
+    color: black;
+  }
+  ul .nav-item a:hover {
+    font-weight: 600;
+    color: rgb(10, 162, 233);
+  }
+  @media (max-width: 768px) {
+    .logo{
+      width: 250px;
+    }
+  }

@@ -1,0 +1,45 @@
+<!-- blue banner -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="bg-info py-5">
+            <div class="container">
+                <div class="row">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a routerLink="/finance/dashboard"><i class="fa-solid fa-home"></i></a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Work Order</li>
+                        </ol>
+                      </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- work order -->
+<div class="container margin">
+  <div>
+    <h3>New Work Orders</h3>
+  </div>
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Work Order No</th>
+          <th scope="col">Assigned To</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let wo of wos">
+          <td data-label="Work Order No" *ngIf="wo.woid && wo.ptnr!=''">{{wo.woid}}</td>
+          <td data-label="Assigned To" *ngIf="wo.woid && wo.ptnr!=''">{{wo.ptnr}}</td>
+          <td data-label="Amount" *ngIf="wo.woid && wo.ptnr!=''">{{wo.amt}}</td>
+          <td *ngIf="wo.woid && wo.ptnr!=''"></td>
+          <td *ngIf="wo.woid && wo.ptnr!=''"><button class="btn" id="btn-ap">Approve</button><button class="btn" id="btn-de">Deny</button></td>
+          <td *ngIf="wo.woid && wo.ptnr!=''"><i class="fa-solid fa-list-ul" style="cursor:pointer" (click)="detailedView(wo.woid)"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

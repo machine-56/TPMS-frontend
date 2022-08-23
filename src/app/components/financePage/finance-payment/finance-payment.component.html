@@ -1,0 +1,48 @@
+<!-- blue banner -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="bg-info py-5">
+            <div class="container">
+                <div class="row">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a routerLink="/finance/dashboard"><i class="fa-solid fa-home"></i></a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Payment</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- table -->
+<div class="container">
+    <div id="heading">
+        <h3>Payment Info</h3>
+    </div>
+    <div class="card">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th scope="col">Work Order No</th>
+                    <th scope="col">Invoice No</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let payment of payments" [class.green]="payment.stat=='paid'" [class.red]="payment.stat=='overdue'">
+                    <td data-label="Work Order No" >{{payment.woid}}</td>
+                    <td data-label="Invoice No" >{{payment.invono}}</td>
+                    <td data-label="Status" >{{payment.stat}}</td>
+                    <td *ngIf="payment.stat!='paid'"><button class="btn">pay</button></td>
+                    <td *ngIf="payment.stat=='paid'"></td>
+                    <td>
+                        <i class="fa-solid fa-list-ul" style=" color:black; cursor:pointer" (click)="detailedView(payment.invono)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+  

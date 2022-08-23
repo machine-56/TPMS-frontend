@@ -1,0 +1,26 @@
+.margin{
+    margin-top: -5%;
+  }
+  .card{
+    margin-top: 3%;
+    margin-right: 2%;
+    height: max-content;
+  }
+  .link{
+    height: 8em;
+    cursor: pointer;
+  }
+  .bg-apv{
+    background-color: #1c96aa;
+  }
+  .icon{
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    z-index: 0; 
+    font-size: 90px;
+    color: rgba(0,0,0,0.15);
+  }

@@ -1,0 +1,33 @@
+<div class="container margin">
+    <div class="head">
+      <h2>Invoice Details</h2>
+    </div>
+    <form class="main" [formGroup]="form" (ngSubmit)="invoice(form.value)" method="post">
+      <div class="row">
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Work order ID</label>
+            <input type="text" class="form-control" name="woid" formControlName="woid">
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Invoice Number</label>
+            <input type="text" class="form-control" name="invono" formControlName="invono">
+          </div>
+          <div class="col-6 mb-3">
+            <label for="formGroupExampleInput" class="form-label">Invoice Date</label>
+            <input type="date" class="form-control" name="invodate" formControlName="invodate">
+          </div>
+          <div class="col-6 mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Due Date</label>
+            <input type="text" class="form-control" name="duedate" formControlName="duedate">
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Attach Inovice</label>
+            <input type="file" class="form-control" name="file" formControlName="file">
+          </div>
+      </div>
+    </form>
+    <div class="navigation">
+      <button class="btn btn-light" type="submit">Submit</button>
+      <button class="btn btn-light" routerLink="/partner/workorder">Cancel</button>
+    </div>
+  </div>

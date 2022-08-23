@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="bg-white border-bottom mb-4 pt-4 pb-2">
+            <div class="container">
+                <div class="row">
+                    <h1 class="fs-5 text-dark"><span class="fw-lighter"><i class="fa-solid fa-file-pdf"></i> </span> Workorder List</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="navigation d-flex justify-content-start">
+            <button class="btn btn-light" routerLink="/admin/dashboard">Back</button>
+            
+        </div>
+    </div>
+
+<div class="row my-5">
+    
+    <div class="col-12 col-md-4 mb-4" *ngFor="let workOrder of workOrder">
+        <a href="" class="text-decoration-none text-dark">
+        <div class="card">
+            <div class="card-body">
+               <p><b>Workorder Id: </b>{{workOrder.woid}}</p> 
+               <p><b>Partner Name: </b>{{workOrder.pname}}</p>
+               <p><b>Training Program: </b>{{workOrder.tpname}}</p>
+               <p><b>Training Date: </b>{{workOrder.tdate}}</p>
+            </div>
+        </div>
+        </a>
+    </div>
+   
+</div>
+</div>
