@@ -1,61 +1,111 @@
-<div class="container mt-5 mb-5">
-    <div class="cover">
-      <div class="front">
-        <img src="/assets/images/work5.jpg" alt="" />
-        <div class="text">
-          <span class="text-1"
-            >It always seems impossible <br />
-            until it's done.</span
-          >
-          <span class="text-2">-Nelson Mandela</span>
-        </div>
-      </div>
-    </div>
-    <div class="forms">
-      <div class="form-content">
-        <div class="login-form">
-          <div class="title">Login</div>
-          <form action="#">
-            <div class="input-boxes">
-              <div class="input-box">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your username" required />
-              </div>
-              <div class="input-box">
-                <i class="fas fa-lock"></i>
-                <input
-                  type="password"
-                  placeholder="Enter your password"
-                  required
-                />
-              </div>
-              <div class="text"><a routerLink="#">Forgot password?</a></div>
-              <!-- <div class="button input-box">
-                <input type="submit" value="Login" />
-              </div> -->
-              <div class="d-flex justify-content-center align-content-center">
-                <button
-                  type="submit"
-                  class="btn btn-lg btn-block btn-primary m-3"
-                  value="Login"
-                >
-                  Login
-                </button>
-              </div>
-              <div class="text sign-up-text">
-                Don't have an account?
-                <a
-                  class="fw-bold"
-                  routerLink="/signup"
-                  style="color: rgb(64, 123, 255)"
-                  for="Signup"
-                  >Signup now</a
-                >
-              </div>
-            </div>
-          </form>
-        </div>
+<div class="container mt-3 mb-3">
+  <div class="cover">
+    <div class="front">
+      <img src="/assets/images/work5.jpg" alt="" />
+      <div class="text">
+        <span class="text-1"
+          >It always seems impossible <br />
+          until it's done.</span
+        >
+        <span class="text-2">-Nelson Mandela</span>
       </div>
     </div>
   </div>
-  
+  <div class="forms">
+    <div class="form-content">
+      <div class="login-form">
+        <div class="title">Login</div>
+        <form #loginform="ngForm">
+          <div class="input-boxes">
+            <div class="form-group">
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter your username"
+                  id="uname"
+                  name="uname"
+                  [(ngModel)]="loginData.uname"
+                  #usernameField="ngModel"
+                  [class.is-invalid]="
+                    usernameField.invalid && usernameField.touched
+                  "
+                  pattern="^[A-Za-z]+$"
+                  required
+                />
+              </div>
+              <div class="small-box">
+                <small
+                  for="username"
+                  id="feedback"
+                  class="text-danger"
+                  [class.invisible]="
+                    usernameField.valid || usernameField.untouched
+                  "
+                  >*Invalid Username</small
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input
+                  class="form-control"
+                  type="password"
+                  placeholder="Enter your password"
+                  id="pwd"
+                  name="pwd"
+                  [(ngModel)]="loginData.pwd"
+                  #passwordField="ngModel"
+                  [class.is-invalid]="
+                    passwordField.invalid && passwordField.touched
+                  "
+                  pattern="^(?=.{6,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$"
+                  required
+                />
+              </div>
+              <div class="small-box">
+                <small
+                  for="password"
+                  id="feedback"
+                  class="text-danger"
+                  [class.invisible]="
+                    passwordField.valid || passwordField.untouched
+                  "
+                  >*Invalid password</small
+                >
+              </div>
+            </div>
+            <div class="text"><a routerLink="#">Forgot password?</a></div>
+            <!-- <div class="button input-box">
+                <input type="submit" value="Login" />
+              </div> -->
+            <div class="d-flex justify-content-center align-content-center">
+              <button
+                type="submit"
+                class="btn btn-lg btn-block btn-primary m-3"
+                value="Login"
+                id="login"
+                name="login"
+                [disabled]="loginform.form.invalid"
+              >
+                Login
+              </button>
+            </div>
+            <div class="text sign-up-text">
+              Don't have an account?
+              <a
+                class="fw-bold"
+                routerLink="/signup"
+                style="color: rgb(64, 123, 255)"
+                for="Signup"
+                >Signup now</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

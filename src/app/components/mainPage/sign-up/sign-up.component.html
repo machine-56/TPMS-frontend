@@ -1,30 +1,150 @@
 <div class="main">
-    <section class="signupdetails">
-      <h1 class="titlename">Signup</h1>
-      <div class="container">
-        <form class="signup-form row">
-          <div class="form-field col-lg-6">
-            <input type="text" id="firstname" class="input-text" name="" />
+  <section class="signupdetails">
+    <h1 class="titlename">Signup</h1>
+    <div class="container">
+      <form class="signup-form row" #signupform="ngForm">
+        <div class="form-group col-lg-6">
+          <div class="form-field">
+            <input
+              type="text"
+              class="input-text form-control"
+              [(ngModel)]="signupData.fname"
+              name="fname"
+              id="fname"
+              #firstnameField="ngModel"
+              [class.is-invalid]="
+                firstnameField.invalid && firstnameField.touched
+              "
+              pattern="^[A-Za-z]+$"
+              required
+            />
             <label for="firstname" class="label">firstname</label>
           </div>
-          <div class="form-field col-lg-6">
-            <input type="text" id="lastname" class="input-text" name="" />
+          <div>
+            <small
+              for="fname"
+              id="fnamefeedback"
+              class="text-danger"
+              [class.invisible]="
+                firstnameField.valid || firstnameField.untouched
+              "
+              >Should contain only alphabets.</small
+            >
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <div class="form-field">
+            <input
+              type="text"
+              class="input-text form-control"
+              [(ngModel)]="signupData.lname"
+              name="lname"
+              id="lname"
+              #lastnameField="ngModel"
+              pattern="^[A-Za-z]+$"
+              [class.is-invalid]="
+                lastnameField.invalid && lastnameField.touched
+              "
+              required
+            />
             <label for="lastname" class="label">lastname</label>
           </div>
-          <div class="form-field col-lg-6">
-            <input type="text" id="username" class="input-text" name="" />
+          <div>
+            <label
+              for="lname"
+              id="lnamefeedback"
+              class="text-danger"
+              [class.invisible]="lastnameField.valid || lastnameField.untouched"
+              >Should contain only alphabets.</label
+            >
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <div class="form-field">
+            <input
+              type="text"
+              class="input-text"
+              class="input-text form-control"
+              [(ngModel)]="signupData.uname"
+              name="uname"
+              id="uname"
+              #usernameField="ngModel"
+              pattern="^[A-Za-z]+$"
+              [class.is-invalid]="
+                usernameField.invalid && usernameField.touched
+              "
+              required
+            />
             <label for="username" class="label">username</label>
           </div>
-          <div class="form-field col-lg-6">
-            <input type="email" id="email" class="input-text" name="" />
+          <div>
+            <small
+              for="uname"
+              id="unamefeedback"
+              class="text-danger"
+              [class.invisible]="usernameField.valid || usernameField.untouched"
+              >Should contain only alphabets.</small
+            >
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <div class="form-field">
+            <input
+              type="email"
+              class="input-text form-control"
+              [(ngModel)]="signupData.email"
+              name="email"
+              type="email"
+              id="email"
+              [class.is-invalid]="emailField.invalid && emailField.touched"
+              #emailField="ngModel"
+              pattern="^([\w\.\-]+)@([\w\-]+).([a-z]{2,4})(.[a-z]{2,4})*$"
+              required
+            />
             <label for="email" class="label">email</label>
           </div>
-          <div class="form-field col-lg-6">
-            <input type="password" id="password" class="input-text" name="" />
+          <div>
+            <small
+              for="email"
+              id="emailfeedback"
+              class="text-danger"
+              [class.invisible]="emailField.valid || emailField.untouched"
+              >*Enter valid e-mail id.</small
+            >
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <div class="form-field">
+            <input
+              type="password"
+              class="input-text form-control"
+              id="pwd"
+              #passwordField="ngModel"
+              [(ngModel)]="signupData.pwd"
+              name="pwd"
+              type="password"
+              id="pwd"
+              [class.is-invalid]="
+                passwordField.invalid && passwordField.touched
+              "
+              pattern="^(?=.{6,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$"
+              minlength="6"
+              required
+            />
             <label for="password" class="label">password</label>
           </div>
-          <div class="form-field col-lg-6">
-            <select class="input-text">
+          <small
+            for="pwd"
+            id="pwdfeedback"
+            class="text-danger"
+            [class.invisible]="passwordField.valid || passwordField.untouched"
+            >minimum 8 character,atleast one uppercase ,one lowercase, atleast
+            one number.
+          </small>
+        </div>
+        <div class="form-group col-lg-6">
+          <div class="form-field">
+            <select class="input-text" name="">
               <option value="1">- select -</option>
               <option value="2">Partner</option>
               <option value="3">Finance</option>
@@ -32,41 +152,57 @@
             </select>
             <label class="label">position</label>
           </div>
-          <!-- <div class="form-field col-lg-6">
-            <input type="text" id="pannumber" class="input-text" name="" />
-            <label for="pannumber" class="label">pan number</label>
-          </div> -->
-          <div class="form-field col-lg-6">
-            <input type="text" id="phonenumber" class="input-text" name="" />
+        </div>
+        <div class="col-lg-6 form-group">
+          <div class="form-field">
+            <input
+              type="text"
+              id="phoneNo"
+              class="input-text form-field"
+              class="input-text form-control"
+              #phoneField="ngModel"
+              [(ngModel)]="signupData.phoneNo"
+              name="phoneNo"
+              type="tel"
+              aria-describedby="materialRegisterFormPasswordHelpBlock"
+              [class.is-invalid]="phoneField.invalid && phoneField.touched"
+              pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"
+              required
+            />
             <label for="phonenumber" class="label">phone number</label>
           </div>
-          <!-- <div class="form-field col-lg-12">
-            <textarea
-              name="address"
-              class="input-text"
-              id="address"
-              cols="30"
-              rows="2"
-            ></textarea>
-            <label for="address" class="label">address</label>
-          </div> -->
-  
-          <div class="form-field col-lg-12 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary btn-lg">Signup</button>
-          </div>
-  
-          <div class="text sign-up-text d-flex justify-content-center">
-            Already have an account?
-            <a
-              class="fw-bold "
-              routerLink="/login"
-              style="color: rgb(64, 123, 255); margin-left: 5px;"
-              for="Login"
-              >Login now</a
-            >
-          </div>
-        </form>
-      </div>
-    </section>
-  </div>
-  
+          <small
+            for="phoneNo"
+            id="phonefeedback"
+            class="text-danger"
+            [class.invisible]="phoneField.valid || phoneField.untouched"
+            >Please enter a valid 10 digit mobile number in any of these format
+            (XXXXXXXXXX) or (XXX-XXX-XXXX) or (XXX.XXX.XXXX) or (XXX XXX XXXX)
+          </small>
+        </div>
+        <div class="form-field col-lg-12 d-flex justify-content-center">
+          <button
+            type="submit"
+            [disabled]="signupform.form.invalid"
+            id="signup"
+            name="signup"
+            class="btn btn-primary btn-lg"
+          >
+            Signup
+          </button>
+        </div>
+
+        <div class="text sign-up-text d-flex justify-content-center">
+          Already have an account?
+          <a
+            class="fw-bold"
+            routerLink="/login"
+            style="color: rgb(64, 123, 255); margin-left: 5px"
+            for="Login"
+            >Login now</a
+          >
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

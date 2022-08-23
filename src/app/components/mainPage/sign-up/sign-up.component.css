@@ -1,60 +1,60 @@
 .signupdetails {
-    max-width: 800px;
-    margin: 50px auto;
-    position: relative;
-    box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-  }
-  .signupdetails .titlename {
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 3px;
-    font-size: 3rem;
-    line-height: 48px;
-    padding-bottom: 20px;
-    color: rgb(64, 123, 255);
-    background: linear-gradient(
-      to right,
-      rgba(2, 80, 248, 0),
-      rgb(2, 80, 248, 1)
-    );
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .signup-form .form-field {
-    position: relative;
-    margin: 32px 0;
-  }
-  .signup-form .input-text {
-    display: block;
-    width: 100%;
-    height: 36px;
-    border-width: 0 0 2px 0;
-    border-color: rgb(64, 123, 255);
-    font-size: 18px;
-    line-height: 26px;
-    font-weight: 400;
-  }
-  .signup-form .input-text:focus + .label,
-  .signup-form .input-text.not-empty + .label {
-    transform: translateY(-24px);
-  }
-  .signup-form .input-text:focus {
-    outline: none;
-  }
-  .signup-form .label {
-    position: absolute;
-    left: 20px;
-    bottom: 15px;
-    font-size: 18px;
-    line-height: 30px;
-    font-weight: 400;
-    color: rgb(64, 123, 255);
-    cursor: text;
-    text-transform: capitalize;
-    transition: transform 0.2s ease-in-out;
-  }
-  /* .signup-form .submit-btn {
+  max-width: 800px;
+  margin: 50px auto;
+  position: relative;
+  box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+.signupdetails .titlename {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 3rem;
+  line-height: 48px;
+  padding-bottom: 20px;
+  color: rgb(64, 123, 255);
+  background: linear-gradient(
+    to right,
+    rgba(2, 80, 248, 0),
+    rgb(2, 80, 248, 1)
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.signup-form .form-field {
+  position: relative;
+  margin: 20px 0;
+}
+.signup-form .input-text {
+  display: block;
+  width: 100%;
+  height: 36px;
+  border-width: 0 0 2px 0;
+  border-color: rgb(64, 123, 255);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+}
+.signup-form .input-text:focus + .label,
+.signup-form .input-text.not-empty + .label {
+  transform: translateY(-24px);
+}
+.signup-form .input-text:focus {
+  outline: none;
+}
+.signup-form .label {
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 400;
+  color: rgb(64, 123, 255);
+  cursor: text;
+  text-transform: capitalize;
+  transition: transform 0.2s ease-in-out;
+}
+/* .signup-form .submit-btn {
     display: inline-block;
     background-image: linear-gradient(
       125deg,
@@ -72,8 +72,7 @@
     cursor: pointer;
     background-color: rgb(64, 123, 255);
   } */
-  select option {
-    color: #000;
-    font-weight: 400;
-  }
-  
+select option {
+  color: #000;
+  font-weight: 400;
+}
