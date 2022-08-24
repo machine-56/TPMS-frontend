@@ -1,28 +1,36 @@
 <!-- blue banner -->
 <div class="container-fluid">
-    <div class="row">
-      <div class="bg-info py-5">
-        <div class="container">
-          <div class="row">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a routerLink="/partner/dashboard"><i style="color: #000;" class="fa-solid fa-home"></i></a></li>
-                <li class="breadcrumb-item" aria-current="page"><a routerLink="/partner/workorder">Work Order</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{woid}}</li>
-              </ol>
-            </nav>
-          </div>
+  <div class="row">
+    <div class="bg-info py-5">
+      <div class="container">
+        <div class="row">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a routerLink="/partner/dashboard"
+                  ><i style="color: #000" class="fa-solid fa-home"></i
+                ></a>
+              </li>
+              <li class="breadcrumb-item" aria-current="page">
+                <a routerLink="/partner/workorder">Work Order</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                {{ woid }}
+              </li>
+            </ol>
+          </nav>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="container margin">
-    <div class="navigation">
-      <button class="btn" routerLink="/partner/generate/invoice">Submit Inovice</button>
+<div class="container margin">
+  <div class="navigation">
+    <button class="btn" routerLink="/partner/invoice">Submit Inovice</button>
   </div>
-    <div class="invoice">
-      <p>Under delelopment state</p>
-      <p> Unable to render pdf</p>
-    </div>
+  <div class="invoice">
+    <p>Under delelopment state</p>
+    <p>Unable to render pdf</p>
   </div>
+</div>

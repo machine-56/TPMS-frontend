@@ -24,32 +24,32 @@ import { PartnerProfileComponent } from './components/partnerPage/partner-profil
 import { PartnerWorkorderComponent } from './components/partnerPage/partner-workorder/partner-workorder.component';
 
 const routes: Routes = [
-  {path:'', component:HomeComponent},
-  {path:'login', component:LoginComponent},
-  {path:'signup', component:SignUpComponent},
-  {path:'admin/dashboard', component:AdminDashboardComponent},
-  {path:'admin/generate/workorder', component:AdminGenWorkorderComponent},
-  {path:'admin/workorder', component:AdminWorkorderComponent},
-  {path:'admin/workorder/:id', component:AdminEachWorkorderComponent},
-  {path:'admin/invoice', component:AdminApvInvoiceComponent},
-  {path:'admin/invoice/:id', component:AdminEachInvoiceComponent},
-  {path:'admin/payment', component:AdminPaymentComponent},
-  {path:'finance/dashboard', component:FinanceDashboardComponent},
-  {path:'finance/payment', component:FinancePaymentComponent},
-  {path:'finance/payment/:id', component:FinanceEachPaymentComponent},
-  {path:'finance/workorder', component:FinanceApvWorkorderComponent},
-  {path:'finance/workorder/:id', component:FinanceEachWorkorderComponent},
-  {path:'finance/invoice', component:FinanceInvoiceComponent},
-  {path:'finance/invoice/:id', component:FinanceEachInvoceComponent},
-  {path:'partner/dashbard', component:PartnerDashboardComponent},
-  {path:'partner/profile', component:PartnerProfileComponent},
-  {path:'partner/workorder', component:PartnerWorkorderComponent},
-  {path:'partner/workorder/:id', component:PartnerEachWorkorderComponent},
-  {path:'partner/invoice', component:PartnerInvoiceComponent},
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'admin/dashboard', component: AdminDashboardComponent },
+  { path: 'admin/generate/workorder', component: AdminGenWorkorderComponent },
+  { path: 'admin/workorder', component: AdminWorkorderComponent },
+  { path: 'admin/workorder/:id', component: AdminEachWorkorderComponent },
+  { path: 'admin/invoice', component: AdminApvInvoiceComponent },
+  { path: 'admin/invoice/:id', component: AdminEachInvoiceComponent },
+  { path: 'admin/payment', component: AdminPaymentComponent },
+  { path: 'finance/dashboard', component: FinanceDashboardComponent },
+  { path: 'finance/payment', component: FinancePaymentComponent },
+  { path: 'finance/payment/:id', component: FinanceEachPaymentComponent },
+  { path: 'finance/workorder', component: FinanceApvWorkorderComponent },
+  { path: 'finance/workorder/:id', component: FinanceEachWorkorderComponent },
+  { path: 'finance/invoice', component: FinanceInvoiceComponent },
+  { path: 'finance/invoice/:id', component: FinanceEachInvoceComponent },
+  { path: 'partner/dashboard', component: PartnerDashboardComponent },
+  { path: 'partner/profile', component: PartnerProfileComponent },
+  { path: 'partner/workorder', component: PartnerWorkorderComponent },
+  { path: 'partner/workorder/:id', component: PartnerEachWorkorderComponent },
+  { path: 'partner/invoice', component: PartnerInvoiceComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

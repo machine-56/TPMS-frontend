@@ -20,6 +20,7 @@
                 firstnameField.invalid && firstnameField.touched
               "
               pattern="^[A-Za-z]+$"
+              minlength="3"
               required
             />
             <label for="firstname" class="label">firstname</label>
@@ -32,7 +33,7 @@
               [class.invisible]="
                 firstnameField.valid || firstnameField.untouched
               "
-              >Should contain only alphabets.</small
+              >Should contain only alphabets and min 3 character.</small
             >
           </div>
         </div>
@@ -54,12 +55,12 @@
             <label for="lastname" class="label">lastname</label>
           </div>
           <div>
-            <label
+            <small
               for="lname"
               id="lnamefeedback"
               class="text-danger"
               [class.invisible]="lastnameField.valid || lastnameField.untouched"
-              >Should contain only alphabets.</label
+              >Should contain only alphabets.</small
             >
           </div>
         </div>
@@ -177,6 +178,7 @@
           <div class="form-field">
             <input
               type="text"
+              placeholder="XXX XXX XXXX"
               id="phoneNo"
               class="input-text form-field"
               class="input-text form-control"

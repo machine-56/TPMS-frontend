@@ -1,42 +1,62 @@
-<div class="container-fluid">
+<div class="vh-100">
+  <div class="container-fluid">
     <div class="row">
-        <div class="bg-white border-bottom mb-4 pt-4 pb-2">
-            <div class="container">
-                <div class="row">
-                    <h1 class="fs-5 text-dark"><span class="fw-lighter"><i class="fa-solid fa-file-invoice"></i></span> Invoice List</h1>
-                </div>
-            </div>
+      <div class="bg-white border-bottom mb-4 pt-4 pb-2">
+        <div class="container">
+          <div class="row">
+            <h1 class="fs-5 text-dark">
+              <span class="fw-lighter"
+                ><i class="fa-solid fa-file-invoice"></i
+              ></span>
+              Invoice List
+            </h1>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-- table view -->
-<div class="container">
-    <!-- <div id="heading">
-        <h3>Payment Info</h3>
-    </div> -->
+  </div>
+  <!-- table view -->
+  <div class="container mb-4">
+    <div class="row mb-3">
+      <div class="navigation d-flex justify-content-start">
+        <button class="btn btn-light" routerLink="/admin/dashboard">
+          Back
+        </button>
+      </div>
+    </div>
     <div class="card">
-        <table class="table ">
-            <thead>
-                <tr>
-                    <th scope="col">Invoice ID</th>
-                    <th scope="col">Partner Name</th>
-                    <th scope="col">Invoice Date</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let invoice of invoices" [class.green]="invoice.stat=='paid'" [class.red]="invoice.stat=='overdue'">
-                    <td data-label="Invoice ID" >{{invoice.invoiceId}}</td>
-                    <td data-label="Partner Name" >{{invoice.patnerName}}</td>
-                    <td data-label="Invoice Date" >{{invoice.invoiceDate}}</td>
-                    <td data-label="Status" >{{invoice.stat}}</td>
-                    <td *ngIf="invoice.stat!='paid'"><button class="btn">pay</button></td>
-                    <td *ngIf="invoice.stat=='paid'"></td>
-                    <td>
-                        <i class="fa-solid fa-list-ul" style=" color:black; cursor:pointer" (click)="detailedView(invoice.invoiceId)"></i>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Invoice ID</th>
+            <th scope="col">Partner Name</th>
+            <th scope="col">Invoice Date</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let invoice of invoices"
+            [class.green]="invoice.stat == 'paid'"
+            [class.red]="invoice.stat == 'overdue'"
+          >
+            <td data-label="Invoice ID">{{ invoice.invoiceId }}</td>
+            <td data-label="Partner Name">{{ invoice.patnerName }}</td>
+            <td data-label="Invoice Date">{{ invoice.invoiceDate }}</td>
+            <td data-label="Status">{{ invoice.stat }}</td>
+            <td>
+              <i
+                class="fa-solid fa-list-ul"
+                style="color: black; cursor: pointer"
+                (click)="detailedView(invoice.invoiceId)"
+              ></i>
+            </td>
+            <td *ngIf="invoice.stat != 'paid'">
+              <button class="btn">pay</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
