@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class SignUpComponent implements OnInit {
   positions = ['Partner', 'Finance', 'Admin'];
   signupData = {
-    fname: '',
-    lname: '',
+    fullname: '',
     uname: '',
     pwd: '',
     email: '',
-    position: '',
+    post: '',
+    compname: '',
     phoneNo: '',
   };
   constructor() {}

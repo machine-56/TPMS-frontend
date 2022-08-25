@@ -31,7 +31,9 @@
                   [class.is-invalid]="
                     usernameField.invalid && usernameField.touched
                   "
-                  pattern="^[A-Za-z]+$"
+                  pattern="^[A-Za-z0-9\-?][^~!@#$%^&*\(\)\_\+\=\{\}\[\]\'\/\,\<\>\?\\\ \.\^\;\:\|\ ]*$"
+                  minlength="5"
+                  maxlength="10"
                   required
                 />
               </div>
@@ -62,6 +64,7 @@
                     passwordField.invalid && passwordField.touched
                   "
                   pattern="^(?=.{6,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$"
+                  minlength="6"
                   required
                 />
               </div>
@@ -77,10 +80,6 @@
                 >
               </div>
             </div>
-            <!-- <div class="text"><a routerLink="#">Forgot password?</a></div> -->
-            <!-- <div class="button input-box">
-                <input type="submit" value="Login" />
-              </div> -->
             <div class="d-flex justify-content-center align-content-center">
               <button
                 type="submit"
