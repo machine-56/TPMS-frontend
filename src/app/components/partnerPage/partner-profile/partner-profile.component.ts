@@ -43,17 +43,11 @@ export class PartnerProfileComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // to show password in update page
-  viewpass() {
-    this.visible = !this.visible;
-    this.inputType = !this.inputType;
-  }
-
   // to get back to edit page and hide profile view
-  toeditpage() {
-    this.editpage = !this.editpage;
-    this.hidepage = !this.hidepage;
-  }
+  // toeditpage() {
+  //   this.editpage = !this.editpage;
+  //   this.hidepage = !this.hidepage;
+  // }
 
   // to get back to updatepage and hide edit profile page
   updatepage() {

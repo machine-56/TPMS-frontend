@@ -1,9 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { apiServerURL } from '../global';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  loginFn(loginData: any) {
+    // console.log(`from service file: ${loginData}`);
+    // console.log(loginData.uname);
+    // console.log(loginData.pwd);
+    return this.http.post(`${apiServerURL}/login`, loginData);
+  }
 }

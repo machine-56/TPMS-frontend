@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +12,19 @@ export class LoginComponent implements OnInit {
     uname: '',
     pwd: '',
   };
-  constructor() {}
+  test = '';
+  constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {}
+
   onLogin() {
-    console.log(this.loginData);
+    this.loginService.loginFn(this.loginData).subscribe((data) => {
+      this.test = JSON.parse(JSON.stringify(data));
+      // console.log(this.post);
+      console.log(this.test);
+      if (this.test === 'admin') {
+      }
+      this.router.navigate([`/admin/dashboard`]);
+    });
   }
 }

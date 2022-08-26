@@ -31,7 +31,7 @@
                   [class.is-invalid]="
                     usernameField.invalid && usernameField.touched
                   "
-                  pattern="^[A-Za-z0-9\-?][^~!@#$%^&*\(\)\_\+\=\{\}\[\]\'\/\,\<\>\?\\\ \.\^\;\:\|\ ]*$"
+                  pattern="^[A-Za-z0-9]*$"
                   minlength="5"
                   maxlength="10"
                   required
@@ -40,7 +40,7 @@
               <div class="small-box">
                 <small
                   for="username"
-                  id="feedback"
+                  id="userfeedback"
                   class="text-danger"
                   [class.invisible]="
                     usernameField.valid || usernameField.untouched
@@ -60,6 +60,7 @@
                   name="pwd"
                   [(ngModel)]="loginData.pwd"
                   #passwordField="ngModel"
+                  autocomplete="on"
                   [class.is-invalid]="
                     passwordField.invalid && passwordField.touched
                   "
@@ -71,7 +72,7 @@
               <div class="small-box">
                 <small
                   for="password"
-                  id="feedback"
+                  id="pwdfeedback"
                   class="text-danger"
                   [class.invisible]="
                     passwordField.valid || passwordField.untouched

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SignupService } from 'src/app/services/signup.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,10 +18,12 @@ export class SignUpComponent implements OnInit {
     compname: '',
     phoneNo: '',
   };
-  constructor() {}
+  constructor(private signupService: SignupService, private router: Router) {}
 
   ngOnInit(): void {}
   onSignup() {
     console.log(this.signupData);
+    this.signupService.signup(this.signupData);
+    this.router.navigate(['login']);
   }
 }

@@ -19,6 +19,7 @@ import { LoginComponent } from './components/mainPage/login/login.component';
 import { SignUpComponent } from './components/mainPage/sign-up/sign-up.component';
 import { PartnerDashboardComponent } from './components/partnerPage/partner-dashboard/partner-dashboard.component';
 import { PartnerEachWorkorderComponent } from './components/partnerPage/partner-each-workorder/partner-each-workorder.component';
+import { PartnerEditProfileComponent } from './components/partnerPage/partner-edit-profile/partner-edit-profile.component';
 import { PartnerInvoiceComponent } from './components/partnerPage/partner-invoice/partner-invoice.component';
 import { PartnerProfileComponent } from './components/partnerPage/partner-profile/partner-profile.component';
 import { PartnerWorkorderComponent } from './components/partnerPage/partner-workorder/partner-workorder.component';
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'partner/workorder', component: PartnerWorkorderComponent },
   { path: 'partner/workorder/:id', component: PartnerEachWorkorderComponent },
   { path: 'partner/invoice', component: PartnerInvoiceComponent },
+  { path: 'partner/profile/edit', component: PartnerEditProfileComponent },
 ];
 
 @NgModule({

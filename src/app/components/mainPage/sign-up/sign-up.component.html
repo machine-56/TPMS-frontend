@@ -7,63 +7,6 @@
         #signupform="ngForm"
         (ngSubmit)="onSignup()"
       >
-        <!-- <div class="form-group col-lg-6">
-          <div class="form-field">
-            <input
-              type="text"
-              class="input-text form-control"
-              [(ngModel)]="signupData.fname"
-              name="fname"
-              id="fname"
-              #firstnameField="ngModel"
-              [class.is-invalid]="
-                firstnameField.invalid && firstnameField.touched
-              "
-              pattern="^[A-Za-z]+$"
-              minlength="3"
-              required
-            />
-            <label for="firstname" class="label">firstname</label>
-          </div>
-          <div>
-            <small
-              for="fname"
-              id="fnamefeedback"
-              class="text-danger"
-              [class.invisible]="
-                firstnameField.valid || firstnameField.untouched
-              "
-              >Should contain only alphabets and min 3 character.</small
-            >
-          </div>
-        </div> -->
-        <!-- <div class="form-group col-lg-6">
-          <div class="form-field">
-            <input
-              type="text"
-              class="input-text form-control"
-              [(ngModel)]="signupData.lname"
-              name="lname"
-              id="lname"
-              #lastnameField="ngModel"
-              pattern="^[A-Za-z]+$"
-              [class.is-invalid]="
-                lastnameField.invalid && lastnameField.touched
-              "
-              required
-            />
-            <label for="lastname" class="label">lastname</label>
-          </div>
-          <div>
-            <small
-              for="lname"
-              id="lnamefeedback"
-              class="text-danger"
-              [class.invisible]="lastnameField.valid || lastnameField.untouched"
-              >Should contain only alphabets.</small
-            >
-          </div>
-        </div> -->
         <div class="form-group col-lg-12">
           <div class="form-field">
             <input
@@ -73,7 +16,7 @@
               name="fullname"
               id="fullname"
               #fullnameField="ngModel"
-              pattern="^[a-zA-z\ ?\.?][^0-9~!@#$%^&*\(\)\_\-\+\=\{\}\[\]\'\/\,\<\>\?\\\^\;\:\|]+$"
+              pattern="^[a-zA-z\ ]+$"
               [class.is-invalid]="
                 fullnameField.invalid && fullnameField.touched
               "
@@ -103,7 +46,7 @@
               name="uname"
               id="uname"
               #usernameField="ngModel"
-              pattern="^[A-Za-z0-9\-?][^~!@#$%^&*\(\)\_\+\=\{\}\[\]\'\/\,\<\>\?\\\ \.\^\;\:\|\ ]*$"
+              pattern="^[A-Za-z0-9]*$"
               [class.is-invalid]="
                 usernameField.invalid && usernameField.touched
               "
@@ -119,7 +62,7 @@
               id="unamefeedback"
               class="text-danger"
               [class.invisible]="usernameField.valid || usernameField.untouched"
-              >*only alphabets, numbers, - are allowed. Limit (5-10)
+              >*only alphabets and numbers are allowed. Limit (5-10)
             </small>
           </div>
         </div>
@@ -158,8 +101,7 @@
               #passwordField="ngModel"
               [(ngModel)]="signupData.pwd"
               name="pwd"
-              type="password"
-              id="pwd"
+              autocomplete="on"
               [class.is-invalid]="
                 passwordField.invalid && passwordField.touched
               "
@@ -285,3 +227,6 @@
     </div>
   </section>
 </div>
+<!--fullname : ^[a-zA-z\ ]+$ -->
+<!-- username: ^[A-Za-z0-9]*$ -->
+<!-- password: pattern="^(?=.{6,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$" -->
