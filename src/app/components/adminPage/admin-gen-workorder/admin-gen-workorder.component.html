@@ -41,6 +41,12 @@
                             *ngIf="(workOrderFormControl.p_name.touched || isSubmitted) && workOrderFormControl.p_name.errors?.['required']">
                            Partner name is required 
                         </span>
+                <span class="text-danger" *ngIf="workOrderFormControl.p_name.errors?.['minlength']">
+                          Partner name should have minimum 3 letters
+                 </span> 
+                 <span class="text-danger" *ngIf="workOrderFormControl.p_name.errors?.['pattern']">
+                   Only alphabets ,space and . allowed
+               </span>
               </div>
               <div class="mb-3 col-md-6 col-12">
                 <label for="p_id" class="form-label">Partner Id</label>
@@ -175,9 +181,10 @@
                     type="text"
                     name="GST"
                   />
-                  <span class="text-danger" *ngIf="workOrderFormControl.GST.errors?.['minlength']">
-                    Invalid GST number
-               </span> 
+                 <span class="text-danger" *ngIf="workOrderFormControl.GST.errors?.['pattern'] ">Invalid GST Number</span>
+                 <span class="text-danger" *ngIf="workOrderFormControl.GST.errors?.['minlength']">
+                    - GST number contains 15 characters
+                 </span> 
               
                 </div>
                 <span class="text-danger"
@@ -200,6 +207,9 @@
             <span class="text-danger" *ngIf="workOrderFormControl.pan_no.errors?.['minlength']">
                 Invalid pan number
            </span> 
+               <span class="text-danger" *ngIf="workOrderFormControl.pan_no.errors?.['pattern']">
+                            Invalid pan number
+              </span> 
               </div>
               <div class="mb-3 col-md-6 col-12">
                 <label for="pan_no" class="form-label">Amount per hour</label>
