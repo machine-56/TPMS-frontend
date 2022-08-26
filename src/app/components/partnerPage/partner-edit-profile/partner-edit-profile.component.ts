@@ -11,17 +11,16 @@ export class PartnerEditProfileComponent implements OnInit {
   visible: boolean = true;
   inputType: boolean = true;
   profile = {
-    image:
-      'https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg',
-    name: 'Adarsh S',
-    username: 'adarsh4-',
-    pwd: 'Adarsh4',
+    image: '',
+    name: '',
+    username: '',
+    pwd: '',
     post: '',
-    id: '45454gsgf01',
-    pan: 'ABCTY1234D',
-    email: 'adarsh@gmail.com',
-    phno: '9544786853',
-    company: 'TCS',
+    id: '',
+    pan: '',
+    email: '',
+    phno: '',
+    company: '',
   };
   constructor(private router: Router, private partnerService: PartnerService) {}
 

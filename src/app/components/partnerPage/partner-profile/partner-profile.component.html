@@ -14,12 +14,12 @@
           <h1>Profile</h1>
         </div>
         <!-- view profile -->
-        <div class="card-body" *ngFor="let i of profile">
+        <div class="card-body">
           <form>
             <div class="row p-5">
               <div class="mb-3 col-md-6 col-12">
                 <img
-                  [src]="i.image"
+                  [src]="profile.image"
                   alt=""
                   height="300px"
                   width="300px"
@@ -29,15 +29,15 @@
               <div class="col-md-6 col-12">
                 <div class="mb-3 col-md-6 col-12">
                   <label for="p_name" class="form-label">Partner Name :</label>
-                  <span>{{ i.name }}</span>
+                  <span>{{ profile.name }}</span>
                 </div>
                 <div class="mb-3 col-md-6 col-12">
                   <label for="username" class="form-label">Username : </label>
-                  <span>{{ i.username }}</span>
+                  <span>{{ profile.username }}</span>
                 </div>
                 <div class="mb-3 col-md-6 col-12">
                   <label for="password" class="form-label">Password :</label>
-                  <span [hidden]="passw">{{ i.pwd }}</span>
+                  <span [hidden]="passw">{{ profile.pwd }}</span>
                   <br />
                   <small class="ml-3" for=""
                     ><input type="checkbox" (click)="pass($event)" /> Show
@@ -46,30 +46,31 @@
                 </div>
                 <div class="mb-3 col-md-6 col-12">
                   <label for="id" class="form-label">Partner Id :</label>
-                  <span>{{ i.id }}</span>
+                  <span>{{ profile.id }}</span>
                 </div>
                 <div class="mb-3 col-md-6 col-12">
                   <label for="email" class="form-label">Email Id :</label>
-                  <span>{{ i.email }}</span>
+                  <span>{{ profile.email }}</span>
                 </div>
                 <div class="mb-3 col-md-6 col-12">
                   <label for="pan" class="form-label">Pan Number :</label>
-                  <span>{{ i.pan }}</span>
+                  <span>{{ profile.pan }}</span>
                 </div>
                 <div class="mb-3 col-md-6 col-12">
                   <label for="phno" class="form-label">Phone Number :</label>
-                  <span>{{ i.phno }}</span>
+                  <span>{{ profile.phno }}</span>
                 </div>
                 <div class="mb-3 col-md-6 col-12">
                   <label for="company" class="form-label"
                     >Comapany Name :</label
                   >
-                  <span>{{ i.company }}</span>
+                  <span>{{ profile.company }}</span>
                 </div>
                 <div class="col-md-12 mt-3 d-flex justify-content-start">
                   <button
                     class="btn btn-lg btn-primary"
                     routerLink="/partner/profile/edit"
+                    (click)="editProfView(profile)"
                   >
                     Edit
                   </button>
