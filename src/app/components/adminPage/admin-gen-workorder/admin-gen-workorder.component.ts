@@ -34,7 +34,7 @@ export class AdminGenWorkorderComponent implements OnInit {
  
   constructor(private fb:FormBuilder) { }
   workOrderForm=this.fb.group({
-    p_name:['', [Validators.required]],
+    p_name:['', [Validators.required,Validators.minLength(3),Validators.maxLength(30),Validators.pattern("^([A-Z][A-Za-z. ']+[.]*)+$")]],
     p_id:['', [Validators.required]],
     tp_name:['', [Validators.required]],
     t_topics:['', [Validators.required]],
