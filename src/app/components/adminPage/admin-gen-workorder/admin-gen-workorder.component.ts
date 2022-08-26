@@ -34,7 +34,7 @@ export class AdminGenWorkorderComponent implements OnInit {
  
   constructor(private fb:FormBuilder) { }
   workOrderForm=this.fb.group({
-    p_name:['', [Validators.required,Validators.minLength(3),Validators.maxLength(30),Validators.pattern("^([A-Z][A-Za-z. ']+[.]*)+$")]],
+    p_name:['', [Validators.required,Validators.minLength(3),Validators.maxLength(30),Validators.pattern("^([A-Za-z][A-Za-z. ']+[.]*)+$")]],
     p_id:['', [Validators.required]],
     tp_name:['', [Validators.required]],
     t_topics:['', [Validators.required]],
@@ -45,7 +45,9 @@ export class AdminGenWorkorderComponent implements OnInit {
     taxControl:['', [Validators.required]] ,
     pan_no:['', [Validators.required,Validators.minLength(10),Validators.pattern("^[A-Z]{5}[0-9]{4}[A-Z]{1}$")]],
     amount:['', [Validators.required,Validators.pattern("^[0-9]*$")]],
-    pay_terms:['', [Validators.required]] 
+    pay_terms:['', [Validators.required]],
+    issue_date:[this.currentDateTime] ,
+    wo_status:['pending']
   });
 
   ngOnInit(): void {
@@ -59,7 +61,10 @@ export class AdminGenWorkorderComponent implements OnInit {
   }
   onSubmit(){
     this.isSubmitted = true;
-    
+    this.adminService.newWorkorder(this.workOrderForm.value);
+    console.log("Called");    
+    alert("Success");
+    this.router.navigate(['admin/workorder']);
     
   }
 
