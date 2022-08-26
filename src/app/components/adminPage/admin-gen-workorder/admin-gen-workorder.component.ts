@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
 @Component({
   selector: 'app-admin-gen-workorder',
   templateUrl: './admin-gen-workorder.component.html',
