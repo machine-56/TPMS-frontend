@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AdminService } from 'src/app/services/admin.service';
 @Component({
   selector: 'app-admin-workorder',
   templateUrl: './admin-workorder.component.html',
@@ -39,9 +39,20 @@ export class AdminWorkorderComponent implements OnInit {
     tdate:'6 October,2022'
     }
     ];
-  constructor() { }
+   workorder=[{
+    _id:'',
+    woid:'',
+    partner_name:'',
+    program_name:'',
+    date_start:'',
+    date_end:''
+  }];
+  constructor(private adminService:AdminService) { }
 
   ngOnInit(): void {
+    this.adminService.getWorkorders().subscribe((data)=>{
+      this.workorder=JSON.parse(JSON.stringify(data));
+    })
   }
 
 }
