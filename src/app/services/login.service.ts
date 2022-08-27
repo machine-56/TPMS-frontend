@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { serverURL } from '../global';
+import { serverURL } from '../server';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
+
   constructor(private http: HttpClient) {}
 
   loginFn(loginData: any) {
@@ -14,4 +15,5 @@ export class LoginService {
     // console.log(loginData.pwd);
     return this.http.post(`${serverURL}/login`, loginData);
   }
+
 }
