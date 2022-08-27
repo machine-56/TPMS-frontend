@@ -1,2 +1,81 @@
+<div class="container my-3">
+  <div class="row">
+    <div class="navigation d-flex justify-content-start">
+      <button class="btn btn-light" routerLink="/admin/dashboard">Back</button>
+    </div>
+  </div>
+</div>
+<div id="workorder" #workorder>
+    <div class="container">
+      
+        <div class="row my-5">
 
-<iframe src="file:///C:/Users/Official%20purposes/Desktop/0.pdf" frameborder="0"></iframe>
+            <div class="card p-5">
+                <div class="card-header pt-2">
+                    <h1 class="text-center text-primary fw-bold">WORK ORDER</h1>
+                </div>
+                <div class="card-body">
+                    <div class="row d-flex align-middle border-bottom" >
+                        <div class="col-6">
+                            <img src={{logo}} alt="ICTAK" width="250" height="150"/>
+                        </div>
+                        <div class="col-6 align-self-center d-flex justify-content-end">
+                        <span class="text-secondary ">
+                           Workorder #: {{workorders.woid}}<br/>
+                           Issued Date: {{workorders.issue_date | date: 'mediumDate'}}
+                        </span>
+                        </div>
+                    </div>
+                    <div class="row my-4">
+                       <div class="col-12 col-md-6 fs-6">
+                            Partner Name: {{workorders.partner_name}}<br/>
+                            Partner Id: {{workorders.partner_id}}<br/>
+                            Pan Number: {{workorders.panNo}}<br/>
+                            <span *ngIf="workorders.GSTno">GST No: {{workorders.GSTno}}</span><br/>
+                       </div>
+                       <div class="col-12 col-md-6 fs-6 d-flex justify-content-end align-self-center">
+                        Training Date: {{workorders.date_start | date:'mediumDate'}} - {{workorders.date_end | date:'mediumDate'}}<br/>
+                   </div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr class="table-primary fs-5"><th colspan="2">More details</th></tr>
+                             <tr>
+                                <td>Training Program Name : </td>
+                                <td>{{workorders.program_name}}</td>
+                             </tr>
+                             <tr>
+                                <td>Training Topics : </td>
+                                <td>{{workorders.traning_topics}}</td>
+                             </tr>
+                             <tr>
+                                <td>Training Mode : </td>
+                                <td>{{workorders.mode}}</td>
+                             </tr>
+                             <tr>
+                                <td>Amount per hour : </td>
+                                <td>{{workorders.amount}}</td>
+                             </tr>
+                             <tr>
+                                <td>Payment Terms : </td>
+                                <td>{{workorders.payterms}}</td>
+                             </tr>
+                             </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div>
+            <!-- <button (click)="generatePDF()">View PDF</button> -->
+        </div>
+        </div>
+        
+    </div>
+   
+</div>
+

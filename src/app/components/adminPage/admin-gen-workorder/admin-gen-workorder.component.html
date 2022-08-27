@@ -37,6 +37,16 @@
                   type="text"
                   name="p_name"
                 />
+                <span class="text-danger"
+                            *ngIf="(workOrderFormControl.p_name.touched || isSubmitted) && workOrderFormControl.p_name.errors?.['required']">
+                           Partner name is required 
+                        </span>
+                <span class="text-danger" *ngIf="workOrderFormControl.p_name.errors?.['minlength']">
+                          Partner name should have minimum 3 letters
+                 </span> 
+                 <span class="text-danger" *ngIf="workOrderFormControl.p_name.errors?.['pattern']">
+                   Only alphabets ,space and . allowed
+               </span>
               </div>
               <div class="mb-3 col-md-6 col-12">
                 <label for="p_id" class="form-label">Partner Id</label>
@@ -46,6 +56,10 @@
                   type="text"
                   name="p_id"
                 />
+                <span class="text-danger"
+                            *ngIf="(workOrderFormControl.p_id.touched || isSubmitted) && workOrderFormControl.p_id.errors?.['required']">
+                           Partner Id is required 
+                        </span>
               </div>
               <div class="mb-3 col-md-8 col-12">
                 <label for="tp_name" class="form-label"
@@ -57,6 +71,10 @@
                   type="text"
                   name="tp_name"
                 />
+                <span class="text-danger"
+                *ngIf="(workOrderFormControl.tp_name.touched || isSubmitted) && workOrderFormControl.tp_name.errors?.['required']">
+             Training Program name is required
+            </span>
               </div>
               <div class="mb-3 col-md-4 col-12"></div>
               <div class="mb-3 col-md-12 col-12">
@@ -67,6 +85,10 @@
                   type="text"
                   name="t_topics"
                 />
+                <span class="text-danger"
+                            *ngIf="(workOrderFormControl.t_topics.touched || isSubmitted) && workOrderFormControl.t_topics.errors?.['required']">
+                         Training topics required
+                        </span>
               </div>
               <div class="mb-3 col-md-6 col-12">
                 <label for="t_date" class="form-label">Training date</label
@@ -93,6 +115,9 @@
                     [for]="picker"
                   ></mat-datepicker-toggle>
                   <mat-date-range-picker #picker></mat-date-range-picker>
+                  <mat-error *ngIf="workOrderFormControl.start.errors?.['required']"> From Date Required</mat-error>
+                  <mat-error *ngIf="workOrderFormControl.end.errors?.['required']">To Date Required</mat-error>
+ 
                 </mat-form-field>
               </div>
               <div class="mb-3 col-md-6 col-12">
@@ -106,6 +131,10 @@
                     {{ modes }}
                   </option>
                 </select>
+                <span class="text-danger"
+                *ngIf="(workOrderFormControl.t_mode.touched || isSubmitted) && workOrderFormControl.t_mode.errors?.['required']">
+           Please select a training mode
+            </span>
               </div>
               <div class="mb-3 col-md-12 col-12">
                 <p><b>Tax Details</b></p>
@@ -152,7 +181,16 @@
                     type="text"
                     name="GST"
                   />
+                 <span class="text-danger" *ngIf="workOrderFormControl.GST.errors?.['pattern'] ">Invalid GST Number</span>
+                 <span class="text-danger" *ngIf="workOrderFormControl.GST.errors?.['minlength']">
+                    - GST number contains 15 characters
+                 </span> 
+              
                 </div>
+                <span class="text-danger"
+                *ngIf="(workOrderFormControl.taxControl.touched || isSubmitted) && workOrderFormControl.taxControl.errors?.['required']">
+          Please select a tax type
+            </span>  
               </div>
               <div class="mb-3 col-md-6 col-12">
                 <label for="pan_no" class="form-label">Pancard Number</label>
@@ -162,6 +200,16 @@
                   type="text"
                   name="pan_no"
                 />
+                <span class="text-danger"
+                *ngIf="(workOrderFormControl.pan_no.touched || isSubmitted) && workOrderFormControl.pan_no.errors?.['required']">
+         Pan number must be filled
+            </span> 
+            <span class="text-danger" *ngIf="workOrderFormControl.pan_no.errors?.['minlength']">
+                Invalid pan number
+           </span> 
+               <span class="text-danger" *ngIf="workOrderFormControl.pan_no.errors?.['pattern']">
+                            Invalid pan number
+              </span> 
               </div>
               <div class="mb-3 col-md-6 col-12">
                 <label for="pan_no" class="form-label">Amount per hour</label>
@@ -171,6 +219,10 @@
                   type="text"
                   name="amount"
                 />
+                <span class="text-danger"
+                *ngIf="(workOrderFormControl.amount.touched || isSubmitted) && workOrderFormControl.amount.errors?.['required']">
+        Enter amount per hour
+            </span> 
               </div>
               <div class="mb-3 col-md-12 col-12">
                 <label for="pay_terms" class="form-label">Payment Terms</label>
@@ -182,7 +234,10 @@
                 />
                 <small
                   >Mention Advance payment, tax inclusive/exclusive etc</small
-                >
+                ><span class="text-danger"
+                            *ngIf="(workOrderFormControl.pay_terms.touched || isSubmitted) && workOrderFormControl.pay_terms.errors?.['required']">
+                 Required field
+                        </span> 
               </div>
               <div class="d-grid gap-2 col-6 mx-auto">
                 <button
