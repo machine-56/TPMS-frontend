@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FinanceService } from 'src/app/services/finance.service';
 
 @Component({
   selector: 'app-finance-apv-workorder',
@@ -7,32 +8,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./finance-apv-workorder.component.css'],
 })
 export class FinanceApvWorkorderComponent implements OnInit {
-  wos = [
+  workorder = [
     {
-      woid: 'test/wo/user/uid/001',
-      amt: '27k',
-      ptnr: 'author',
-    },
-    {
-      woid: 'test/wo/user/uid/002',
-      amt: '10k',
-      ptnr: 'author',
-    },
-    {
-      woid: 'test/wo/user/uid/003',
-      amt: '13k',
-      ptnr: 'author',
+      _id: '',
+      woid: '',
+      partner_name: '',
+      program_name: '',
+      date_start: '',
+      date_end: '',
+      amount:'',
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private financeService: FinanceService) {}
 
   ngOnInit(): void {
     localStorage.removeItem('woid');
+    this.financeService.getWorkOrder().subscribe((data)=>{
+      this.workorder = JSON.parse(JSON.stringify(data));
+    });
   }
 
   detailedView(woid: any) {
     localStorage.setItem('woid', woid.toString());
     this.router.navigate(['/finance/workorder/', woid]);
+  }
+
+  fnDeny(data: any){
+    this.financeService.fnDeny(data);
   }
 }

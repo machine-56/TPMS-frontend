@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FinanceService } from 'src/app/services/finance.service';
 
 @Component({
   selector: 'app-finance-each-workorder',
@@ -7,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FinanceEachWorkorderComponent implements OnInit {
 
+  public id: any;logo='/assets/images/logo.svg';
+  eachWO:any=[];
   woid=localStorage.getItem("woid");
-  pdfsrc='https://file-examples.com/storage/fe5467a6a163010b197fb20/2017/10/file-sample_150kB.pdf';
 
-  constructor() { }
+  constructor(private financeService: FinanceService) {}
 
   ngOnInit(): void {
+    this.financeService.eachWorkOrder(this.woid)
+    .subscribe((data)=>{
+      this.eachWO = JSON.parse(JSON.stringify(data));
+    });
   }
 
 }

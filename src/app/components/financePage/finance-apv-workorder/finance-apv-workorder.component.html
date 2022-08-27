@@ -36,27 +36,26 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let wo of wos">
-          <td data-label="Work Order No" *ngIf="wo.woid && wo.ptnr != ''">
+        <tr *ngFor="let wo of workorder">
+          <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Work Order No">
             {{ wo.woid }}
           </td>
-          <td data-label="Assigned To" *ngIf="wo.woid && wo.ptnr != ''">
-            {{ wo.ptnr }}
+          <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Assigned To">
+            {{ wo.partner_name }}
           </td>
-          <td data-label="Amount" *ngIf="wo.woid && wo.ptnr != ''">
-            {{ wo.amt }}
+          <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Amount">
+            {{ wo.amount }}
           </td>
-          <td *ngIf="wo.woid && wo.ptnr != ''"></td>
-          <td *ngIf="wo.woid && wo.ptnr != ''">
-            <button class="btn" id="btn-ap">Approve</button
-            ><button class="btn" id="btn-de">Deny</button>
-          </td>
-          <td *ngIf="wo.woid && wo.ptnr != ''">
+          <td *ngIf="wo.woid && wo.partner_name != ''">
             <i
               class="fa-solid fa-list-ul"
               style="cursor: pointer"
               (click)="detailedView(wo.woid)"
             ></i>
+          </td>
+          <td *ngIf="wo.woid && wo.partner_name != ''">
+            <button class="btn" >Approve</button
+            ><button class="btn" (click)="fnDeny(wo._id)">Deny</button>
           </td>
         </tr>
       </tbody>
