@@ -7,60 +7,32 @@
         #signupform="ngForm"
         (ngSubmit)="onSignup()"
       >
-        <div class="form-group col-lg-6">
+        <div class="form-group col-lg-12">
           <div class="form-field">
             <input
               type="text"
               class="input-text form-control"
-              [(ngModel)]="signupData.fname"
-              name="fname"
-              id="fname"
-              #firstnameField="ngModel"
+              [(ngModel)]="signupData.fullname"
+              name="fullname"
+              id="fullname"
+              #fullnameField="ngModel"
+              pattern="^[a-zA-z\ ]+$"
               [class.is-invalid]="
-                firstnameField.invalid && firstnameField.touched
+                fullnameField.invalid && fullnameField.touched
               "
-              pattern="^[A-Za-z]+$"
               minlength="3"
+              maxlength="30"
               required
             />
-            <label for="firstname" class="label">firstname</label>
+            <label for="fullname" class="label">fullname</label>
           </div>
           <div>
             <small
-              for="fname"
-              id="fnamefeedback"
+              for="fullname"
+              id="fullnamefeedback"
               class="text-danger"
-              [class.invisible]="
-                firstnameField.valid || firstnameField.untouched
-              "
-              >Should contain only alphabets and min 3 character.</small
-            >
-          </div>
-        </div>
-        <div class="form-group col-lg-6">
-          <div class="form-field">
-            <input
-              type="text"
-              class="input-text form-control"
-              [(ngModel)]="signupData.lname"
-              name="lname"
-              id="lname"
-              #lastnameField="ngModel"
-              pattern="^[A-Za-z]+$"
-              [class.is-invalid]="
-                lastnameField.invalid && lastnameField.touched
-              "
-              required
-            />
-            <label for="lastname" class="label">lastname</label>
-          </div>
-          <div>
-            <small
-              for="lname"
-              id="lnamefeedback"
-              class="text-danger"
-              [class.invisible]="lastnameField.valid || lastnameField.untouched"
-              >Should contain only alphabets.</small
+              [class.invisible]="fullnameField.valid || fullnameField.untouched"
+              >*no number and symbol allowed. Limit (3-30).</small
             >
           </div>
         </div>
@@ -74,10 +46,12 @@
               name="uname"
               id="uname"
               #usernameField="ngModel"
-              pattern="^[A-Za-z]+$"
+              pattern="^[A-Za-z0-9]*$"
               [class.is-invalid]="
                 usernameField.invalid && usernameField.touched
               "
+              minlength="5"
+              maxlength="10"
               required
             />
             <label for="username" class="label">username</label>
@@ -88,8 +62,8 @@
               id="unamefeedback"
               class="text-danger"
               [class.invisible]="usernameField.valid || usernameField.untouched"
-              >Should contain only alphabets.</small
-            >
+              >*only alphabets and numbers are allowed. Limit (5-10)
+            </small>
           </div>
         </div>
         <div class="form-group col-lg-6">
@@ -127,8 +101,7 @@
               #passwordField="ngModel"
               [(ngModel)]="signupData.pwd"
               name="pwd"
-              type="password"
-              id="pwd"
+              autocomplete="on"
               [class.is-invalid]="
                 passwordField.invalid && passwordField.touched
               "
@@ -143,7 +116,7 @@
             id="pwdfeedback"
             class="text-danger"
             [class.invisible]="passwordField.valid || passwordField.untouched"
-            >minimum 8 character,atleast one uppercase ,one lowercase, atleast
+            >minimum 6 character,atleast one uppercase ,one lowercase, atleast
             one number.
           </small>
         </div>
@@ -154,7 +127,7 @@
               id="position"
               name="position"
               required
-              [(ngModel)]="signupData.position"
+              [(ngModel)]="signupData.post"
               #posts="ngModel"
             >
               <option value="">- select -</option>
@@ -172,6 +145,32 @@
               [class.invisible]="posts.valid || posts.untouched"
               >*Please select a position</small
             >
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <div class="form-field">
+            <input
+              type="text"
+              class="input-text form-control"
+              [(ngModel)]="signupData.compname"
+              name="compname"
+              id="compname"
+              #compnameField="ngModel"
+              [class.is-invalid]="
+                compnameField.invalid && compnameField.touched
+              "
+              required
+            />
+            <label for="fullname" class="label">company name</label>
+          </div>
+          <div>
+            <small
+              for="compname"
+              id="compnamefeedback"
+              class="text-danger"
+              [class.invisible]="compnameField.valid || compnameField.untouched"
+              >*company name required.
+            </small>
           </div>
         </div>
         <div class="col-lg-6 form-group">
@@ -228,3 +227,6 @@
     </div>
   </section>
 </div>
+<!--fullname : ^[a-zA-z\ ]+$ -->
+<!-- username: ^[A-Za-z0-9]*$ -->
+<!-- password: pattern="^(?=.{6,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$" -->

@@ -34,6 +34,7 @@ import { PartnerWorkorderComponent } from './components/partnerPage/partner-work
 import { PartnerInvoiceComponent } from './components/partnerPage/partner-invoice/partner-invoice.component';
 import { PartnerEachWorkorderComponent } from './components/partnerPage/partner-each-workorder/partner-each-workorder.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PartnerEditProfileComponent } from './components/partnerPage/partner-edit-profile/partner-edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PartnerWorkorderComponent,
     PartnerInvoiceComponent,
     PartnerEachWorkorderComponent,
+    PartnerEditProfileComponent,
   ],
   imports: [
     BrowserModule,

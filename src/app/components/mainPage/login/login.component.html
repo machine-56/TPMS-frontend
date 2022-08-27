@@ -31,14 +31,16 @@
                   [class.is-invalid]="
                     usernameField.invalid && usernameField.touched
                   "
-                  pattern="^[A-Za-z]+$"
+                  pattern="^[A-Za-z0-9]*$"
+                  minlength="5"
+                  maxlength="10"
                   required
                 />
               </div>
               <div class="small-box">
                 <small
                   for="username"
-                  id="feedback"
+                  id="userfeedback"
                   class="text-danger"
                   [class.invisible]="
                     usernameField.valid || usernameField.untouched
@@ -58,17 +60,19 @@
                   name="pwd"
                   [(ngModel)]="loginData.pwd"
                   #passwordField="ngModel"
+                  autocomplete="on"
                   [class.is-invalid]="
                     passwordField.invalid && passwordField.touched
                   "
                   pattern="^(?=.{6,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$"
+                  minlength="6"
                   required
                 />
               </div>
               <div class="small-box">
                 <small
                   for="password"
-                  id="feedback"
+                  id="pwdfeedback"
                   class="text-danger"
                   [class.invisible]="
                     passwordField.valid || passwordField.untouched
@@ -77,10 +81,6 @@
                 >
               </div>
             </div>
-            <!-- <div class="text"><a routerLink="#">Forgot password?</a></div> -->
-            <!-- <div class="button input-box">
-                <input type="submit" value="Login" />
-              </div> -->
             <div class="d-flex justify-content-center align-content-center">
               <button
                 type="submit"
