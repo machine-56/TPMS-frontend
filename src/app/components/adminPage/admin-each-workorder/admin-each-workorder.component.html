@@ -1,9 +1,9 @@
-<div class="container my-3">
-  <div class="row">
-    <div class="navigation d-flex justify-content-start">
-      <button class="btn btn-light" routerLink="/admin/workorder">Back</button>
-    </div>
+<div class="container">
+  <div class="row my-5 ">
+  <div class="d-flex justify-content-end">
+    <button (click)="generatePDF()" class="btn btn-primary"><i class="fa fa-download"></i>View PDF</button>
   </div>
+</div>
 </div>
 <div id="workorder" #workorder>
   <div class="container">
@@ -40,7 +40,7 @@
               {{ workorders.date_end | date: "mediumDate" }}<br />
             </div>
           </div>
-          <div class="row my-4">
+          <div class="row my-4"><div class="col-11 m-auto">
             <div class="table-responsive">
               <table class="table table-bordered">
                 <tbody>
@@ -48,7 +48,7 @@
                     <th colspan="2">More details</th>
                   </tr>
                   <tr>
-                    <td>Training Program Name :</td>
+                    <td style="width:50%">Training Program Name :</td>
                     <td>{{ workorders.program_name }}</td>
                   </tr>
                   <tr>
@@ -74,10 +74,14 @@
         </div>
       </div>
     </div>
-    <div class="row my-5">
-      <div>
-        <!-- <button (click)="generatePDF()">View PDF</button> -->
-      </div>
+  </div>
+   
+  </div>
+</div>
+<div class="container my-3">
+  <div class="row">
+    <div class="navigation d-flex justify-content-start">
+      <button class="btn btn-light" routerLink="/admin/workorder">Back</button>
     </div>
   </div>
 </div>
