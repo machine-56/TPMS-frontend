@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-finance-each-payment',
@@ -8,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class FinanceEachPaymentComponent implements OnInit {
 
   invono=localStorage.getItem("invono");
+  
 
-  constructor() { }
+    safeUrl: any;
+    data:any;
+
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    this.data = 'https://machine-56.github.io/Portfolio-Website/'
+    this.safeUrl= this.sanitizer.bypassSecurityTrustResourceUrl(this.data)
   }
 
 }
