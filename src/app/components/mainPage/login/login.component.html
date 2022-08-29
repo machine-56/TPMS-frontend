@@ -15,6 +15,9 @@
     <div class="form-content">
       <div class="login-form">
         <div class="title">Login</div>
+        <div class="text sign-up-text text-danger" *ngIf="showError">
+          <small>{{errormsg}}</small>
+        </div>
         <form #loginform="ngForm" (ngSubmit)="onLogin()">
           <div class="input-boxes">
             <div class="form-group">

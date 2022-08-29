@@ -8,6 +8,8 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  errormsg='';
+  showError: boolean = false;
   loginData = {
     uname: '',
     pwd: '',
@@ -18,13 +20,19 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onLogin() {
-    this.loginService.loginFn(this.loginData).subscribe((data) => {
-      this.test = JSON.parse(JSON.stringify(data));
+    this.loginService.loginFn(this.loginData).subscribe((res) => {
+      //this.test = JSON.parse(JSON.stringify(data));
       // console.log(this.post);
-      console.log(this.test);
-      if (this.test === 'admin') {
-      }
-      this.router.navigate([`/admin/dashboard`]);
+      console.log(res.post);
+      localStorage.setItem('token',res.token);
+      localStorage.setItem('role',res.post);
+      if (res.post === 'admin') {
+        this.router.navigate([`/admin/dashboard`]);
+      }else if(res.post==''){ this.router.navigate([`/`]);}
+    },(err) => {
+      console.log(err.error.message);
+      this.errormsg=err.error.message;
+      this.showError=true;
     });
   }
 }
