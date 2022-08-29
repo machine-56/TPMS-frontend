@@ -54,7 +54,7 @@
             ></i>
           </td>
           <td *ngIf="wo.woid && wo.partner_name != ''">
-            <button class="btn" >Approve</button
+            <button class="btn" (click)="fnApv(wo._id)">Approve</button
             ><button class="btn" (click)="fnDeny(wo._id)">Deny</button>
           </td>
         </tr>
