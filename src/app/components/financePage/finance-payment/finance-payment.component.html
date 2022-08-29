@@ -34,11 +34,10 @@
                     <td data-label="Work Order No" >{{payment.woid}}</td>
                     <td data-label="Invoice No" >{{payment.invono}}</td>
                     <td data-label="Status" >{{payment.stat}}</td>
-                    <td *ngIf="payment.stat!='paid'"><button class="btn">pay</button></td>
-                    <td *ngIf="payment.stat=='paid'"></td>
                     <td>
                         <i class="fa-solid fa-list-ul" style=" color:black; cursor:pointer" (click)="detailedView(payment.invono)"></i>
                     </td>
+                    <td *ngIf="payment.stat!='paid'"><button class="btn">pay</button></td>
                 </tr>
             </tbody>
         </table>
