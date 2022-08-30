@@ -1,32 +1,59 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { PartnerService } from 'src/app/services/partner.service';
 
 @Component({
   selector: 'app-partner-invoice',
   templateUrl: './partner-invoice.component.html',
-  styleUrls: ['./partner-invoice.component.css']
+  styleUrls: ['./partner-invoice.component.css'],
 })
 export class PartnerInvoiceComponent implements OnInit {
+  invoice: any = {};
 
-  form:FormGroup | any;
+  displayMultipleInvoices!: Boolean;
+  @ViewChild('multipleInput', { static: false }) multipleInput!: ElementRef;
 
-  constructor(private formbuilder: FormBuilder, private router:Router) { }
-
-
-  ngOnInit(): void {
-    this.form = this.formbuilder.group({
-      woid: this.formbuilder.control('', Validators.required),
-      invono: this.formbuilder.control('', Validators.required),
-      invodate: this.formbuilder.control('', Validators.required),
-      duedate: this.formbuilder.control('', Validators.required),
-      file: this.formbuilder.control('', Validators.required)
-    })
+  multipleInvoices = [];
+  constructor(private router: Router, private partnerService: PartnerService) {
+    this.displayMultipleInvoices = false;
   }
 
-  invoice(data: any){
-    console.log(data);
-    this.router.navigate(['/partner/workorder'])
+  ngOnInit(): void {}
+
+  selectMultipleInvoice(event: any) {
+    if (event.target.files.length > 0) {
+      this.multipleInvoices = event.target.files;
+    }
+  }
+  invoiceSubmit() {
+    const formdata = new FormData();
+
+    for (let img of this.multipleInvoices) {
+      formdata.append('files', img);
+    }
+
+    //do the form upload call on successfull completion of fileupload
+    this.partnerService.invoiceFileUpload(formdata).subscribe((res) => {
+      this.multipleInput.nativeElement.value = '';
+      console.log(res.path);
+
+      this.invoiceFormUpload(res.path[0]);
+      this.displayMultipleInvoices = true;
+    });
   }
 
+  invoiceFormUpload(invoiceFileName: any) {
+    this.invoice.fileName = invoiceFileName;
+    console.log(this.invoice);
+    this.partnerService.invoiceFormUpload(this.invoice).subscribe({
+      next: (succ: any) => {
+        if (succ.success) {
+          console.log('success');
+        }
+      },
+      error: (err) => {
+        console.log('Error', err);
+      },
+    });
+  }
 }

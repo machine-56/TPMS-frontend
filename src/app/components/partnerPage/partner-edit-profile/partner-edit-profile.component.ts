@@ -10,34 +10,29 @@ import { PartnerService } from 'src/app/services/partner.service';
 export class PartnerEditProfileComponent implements OnInit {
   visible: boolean = true;
   inputType: boolean = true;
+
   profile = {
-    image:
-      'https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg',
-    name: 'Adarsh S',
-    username: 'adarsh4',
-    pwd: 'Adarsh4',
-    post: 'partner',
-    id: '45454gsgf01',
-    pan: 'ABCTY1234D',
-    email: 'adarsh@gmail.com',
-    phno: '9544786853',
-    company: 'TCS',
+    image: '',
+    name: '',
+    uname: '',
+    pwd: '',
+    post: '',
+    pid: '',
+    pan: '',
+    email: '',
+    phoneNo: '',
+    compname: '',
   };
-  // profile = {
-  //   image: '',
-  //   name: '',
-  //   username: '',
-  //   pwd: '',
-  //   post: '',
-  //   id: '',
-  //   pan: '',
-  //   email: '',
-  //   phno: '',
-  //   company: '',
-  // };
   constructor(private router: Router, private partnerService: PartnerService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let uid = '6309171b58dd3ac67bdaa4fb';
+    this.partnerService.getProfile(uid).subscribe((data: any) => {
+      console.log(data);
+      // this.profile = data;
+      this.profile = JSON.parse(JSON.stringify(data));
+    });
+  }
 
   // to show password in update page
   viewpass() {
@@ -45,21 +40,14 @@ export class PartnerEditProfileComponent implements OnInit {
     this.inputType = !this.inputType;
   }
   update() {
-    this.partnerService.updateProfile(this.profile);
-    localStorage.removeItem('update');
-    alert('success');
-    this.router.navigate(['partner/profile']);
+    let answer = confirm('Are you sure you want to update profile');
+    if (answer) {
+      let uid = '6309171b58dd3ac67bdaa4fb';
+
+      this.partnerService.updateProfile(this.profile);
+      localStorage.removeItem(uid);
+      // alert('success');
+      this.router.navigate(['partner/profile']);
+    }
   }
 }
-
-// ----------------------------------------------
-// {image: '',
-//     name: '',
-//     username: '',
-//     pwd: '',
-//     post: '',
-//     id: '',
-//     pan: '',
-//     email: '',
-//     phno: '',
-//     company: '',}
