@@ -35,6 +35,7 @@ import { PartnerInvoiceComponent } from './components/partnerPage/partner-invoic
 import { PartnerEachWorkorderComponent } from './components/partnerPage/partner-each-workorder/partner-each-workorder.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PartnerEditProfileComponent } from './components/partnerPage/partner-edit-profile/partner-edit-profile.component';
+import { AdminApvPartnerComponent } from './components/adminPage/admin-apv-partner/admin-apv-partner.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { PartnerEditProfileComponent } from './components/partnerPage/partner-ed
     PartnerInvoiceComponent,
     PartnerEachWorkorderComponent,
     PartnerEditProfileComponent,
+    AdminApvPartnerComponent,
   ],
   imports: [
     BrowserModule,

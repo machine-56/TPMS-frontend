@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminApvInvoiceComponent } from './components/adminPage/admin-apv-invoice/admin-apv-invoice.component';
+import { AdminApvPartnerComponent } from './components/adminPage/admin-apv-partner/admin-apv-partner.component';
 import { AdminDashboardComponent } from './components/adminPage/admin-dashboard/admin-dashboard.component';
 import { AdminEachInvoiceComponent } from './components/adminPage/admin-each-invoice/admin-each-invoice.component';
 import { AdminEachWorkorderComponent } from './components/adminPage/admin-each-workorder/admin-each-workorder.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'admin/invoice', component: AdminApvInvoiceComponent },
   { path: 'admin/invoice/:id', component: AdminEachInvoiceComponent },
   { path: 'admin/payment', component: AdminPaymentComponent },
+  { path: 'admin/partner', component:AdminApvPartnerComponent},
   { path: 'finance/dashboard', component: FinanceDashboardComponent },
   { path: 'finance/payment', component: FinancePaymentComponent },
   { path: 'finance/payment/:id', component: FinanceEachPaymentComponent },

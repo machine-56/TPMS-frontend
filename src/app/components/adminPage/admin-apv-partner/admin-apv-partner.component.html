@@ -1,0 +1,65 @@
+<!-- blue banner -->
+<div class="container-fluid">
+    <div class="row">
+      <div class="bg-info py-5">
+        <div class="container">
+          <div class="row">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a routerLink="/admin/dashboard"
+                    ><i class="fa-solid fa-home"></i
+                  ></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Users
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- work order -->
+  <div class="container margin">
+    <div>
+      <h3>New Users</h3>
+    </div>
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let reguser of regUserList">
+            <td *ngIf="reguser.uname && reguser.email != ''" data-label="Username">
+              {{ reguser.uname }}
+            </td>
+            <td *ngIf="reguser.uname && reguser.email != ''" data-label="Email">
+              {{ reguser.email }}
+            </td>
+            <td *ngIf="reguser.uname && reguser.email != ''" data-label="User Role">
+              {{ reguser.post }}
+            </td>
+            <td *ngIf="reguser.uname && reguser.email != ''">
+              <i
+                class="fa-solid fa-list-ul"
+                style="cursor: pointer"
+                (click)="detailedView(reguser._id)"
+              ></i>
+            </td>
+            <td *ngIf="reguser.uname && reguser.email != ''">
+              <button class="btn" (click)="PartnerApv(reguser)">Approve</button
+              ><button class="btn" (click)="PartnerDeny(reguser._id)">Deny</button>
+            </td>
+          </tr> 
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
