@@ -101,10 +101,11 @@
 <div class="container">
   <div class="navigation">
       <button class="btn btn-light" routerLink="/finance/workorder">Back</button>
-      <button class="btn btn-light">Approve</button>
-      <button class="btn btn-light"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Deny</button>
+      <button class="btn btn-light" (click)="fnApv(eachWO._id)">Approve</button>
+      <button class="btn btn-light" (click)="fnDeny(eachWO._id)" >Deny</button>
+      <!-- data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" -->
   </div>
-  <div class="comment">
+  <!-- <div class="comment">
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
               <div class="form-floating">
@@ -116,5 +117,5 @@
               </div>
           </div>
         </div>
-  </div>
+  </div> -->
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FinanceService } from 'src/app/services/finance.service';
 
 @Component({
@@ -12,13 +13,27 @@ export class FinanceEachWorkorderComponent implements OnInit {
   eachWO:any=[];
   woid=localStorage.getItem("woid");
 
-  constructor(private financeService: FinanceService) {}
+  constructor(private financeService: FinanceService, private router: Router) {}
 
   ngOnInit(): void {
     this.financeService.eachWorkOrder(this.woid)
     .subscribe((data)=>{
       this.eachWO = JSON.parse(JSON.stringify(data));
     });
+  }
+
+  fnApv(data: any){
+    this.financeService.apvfn(data)
+    .subscribe(()=>{})
+    this.router.navigate(['/finance/workorder'])
+  }
+
+  fnDeny(data: any){
+    this.financeService.deletefn(data)
+    .subscribe(()=>{
+      // alert('Workorder denied');
+    })
+    this.router.navigate(['/finance/workorder'])
   }
 
 }

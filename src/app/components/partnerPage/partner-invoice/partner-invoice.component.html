@@ -1,33 +1,122 @@
 <div class="container margin">
-    <div class="head">
-      <h2>Invoice Details</h2>
-    </div>
-    <form class="main" [formGroup]="form" (ngSubmit)="invoice(form.value)" method="post">
-      <div class="row">
-          <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Work order ID</label>
-            <input type="text" class="form-control" name="woid" formControlName="woid">
-          </div>
-          <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Invoice Number</label>
-            <input type="text" class="form-control" name="invono" formControlName="invono">
-          </div>
-          <div class="col-6 mb-3">
-            <label for="formGroupExampleInput" class="form-label">Invoice Date</label>
-            <input type="date" class="form-control" name="invodate" formControlName="invodate">
-          </div>
-          <div class="col-6 mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Due Date</label>
-            <input type="text" class="form-control" name="duedate" formControlName="duedate">
-          </div>
-          <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Attach Inovice</label>
-            <input type="file" class="form-control" name="file" formControlName="file">
-          </div>
-      </div>
-    </form>
-    <div class="navigation">
-      <button class="btn btn-light" type="submit">Submit</button>
-      <button class="btn btn-light" routerLink="/partner/workorder">Cancel</button>
+  <div class="row">
+    <div class="navigation mt-4 d-flex justify-content-center">
+      <button class="btn btn-light" routerLink="/partner/workorder">
+        Back
+      </button>
     </div>
   </div>
+  <div class="head">
+    <h2>Invoice Details</h2>
+  </div>
+  <form class="main" #invoiceForm="ngForm" (ngSubmit)="invoiceSubmit()">
+    <div class="row">
+      <div class="mb-3">
+        <label for="woid" class="form-label">Work order ID</label>
+        <input
+          type="text"
+          class="form-control"
+          #woid="ngModel"
+          id="woid"
+          [(ngModel)]="invoice.woid"
+          name="woid"
+          [class.is-invalid]="woid.invalid && woid.touched"
+          required
+        />
+        <span style="color: red" [class.d-none]="woid.valid || woid.untouched"
+          >*Invoice ID required<br
+        /></span>
+      </div>
+      <div class="mb-3">
+        <label for="invono" class="form-label">Invoice Number</label>
+        <input
+          type="text"
+          class="form-control"
+          name="invono"
+          #invono="ngModel"
+          id="invono"
+          required
+          [(ngModel)]="invoice.invono"
+          [class.is-invalid]="invono.invalid && invono.touched"
+        />
+        <span
+          style="color: red"
+          [class.d-none]="invono.valid || invono.untouched"
+          >* Invoice number required<br
+        /></span>
+      </div>
+      <div class="col-6 mb-3">
+        <label for="invodate" class="form-label">Invoice Date</label>
+        <input
+          type="date"
+          class="form-control"
+          name="invodate"
+          #invodate="ngModel"
+          id="invodate"
+          [(ngModel)]="invoice.invodate"
+          [class.is-invalid]="invodate.invalid && invodate.touched"
+          required
+        />
+        <span
+          style="color: red"
+          [class.d-none]="invodate.valid || invodate.untouched"
+          >* Invoice date is required<br
+        /></span>
+      </div>
+      <div class="col-6 mb-3">
+        <label for="duedate" class="form-label">Due Date</label>
+        <input
+          type="date"
+          class="form-control"
+          name="duedate"
+          #duedate="ngModel"
+          id="duedate"
+          [(ngModel)]="invoice.duedate"
+          [class.is-invalid]="duedate.invalid && duedate.touched"
+          required
+        />
+        <span
+          style="color: red"
+          [class.d-none]="duedate.valid || duedate.untouched"
+          >* Due date is required<br
+        /></span>
+      </div>
+      <div class="mb-3">
+        <label for="file" class="form-label">Attach Inovice</label>
+        <input
+          class="form-control"
+          #multipleInput
+          type="file"
+          name="invoices"
+          multiple
+          (change)="selectMultipleInvoice($event)"
+          accept=".pdf,.jpeg,.jpg,.png"
+          required="true"
+        />
+      </div>
+      <ng-template
+        [ngIf]="displayMultipleInvoices"
+        [ngIfElse]="elseMultipleInvoicesTemplate"
+      >
+        <div class="text-success"><br />Invoice Uploaded Successfully</div>
+      </ng-template>
+
+      <ng-template #elseMultipleInvoicesTemplate>
+        <br /><br />
+        <div class="text-danger">Please Upload Invoice</div>
+      </ng-template>
+    </div>
+    <div class="navigation">
+      <button
+        class="btn btn-light"
+        [disabled]="invoiceForm.form.invalid"
+        type="submit"
+      >
+        Submit
+      </button>
+      <button class="btn btn-light" routerLink="/partner/workorder">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

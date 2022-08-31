@@ -28,4 +28,7 @@ export class FinanceService {
     return this.http.delete(`${this.logurl}/workorder/remove/`+data)
   }
 
+  payfn(data: any){
+    return this.http.put(`${this.logurl}/payment/pay`,{"id":data})
+  }
 }

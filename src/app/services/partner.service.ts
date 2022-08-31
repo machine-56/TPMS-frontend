@@ -9,15 +9,29 @@ export class PartnerService {
   constructor(private http: HttpClient) {}
 
   getProfile(uid: any) {
-    return this.http.get(`${serverURL}/partner/edit`);
+    return this.http.get(`${serverURL}/partner/` + uid);
   }
 
   updateProfile(profile: any) {
-    // console.log('Profile Update');
-    // return this.http
-    //   .put(`${apiServerURL}/partner`, profile)
-    //   .subscribe((data) => {
-    //     console.log(data);
-    //   });
+    console.log('profile update');
+    return this.http
+      .put(`${serverURL}/partner/edit`, profile)
+      .subscribe((data) => {
+        console.log(data);
+      });
+  }
+  // sendInvoice(item: any) {
+  //   return this.http
+  //     .post(`${serverURL}/partner/invoice`, item)
+  //     .subscribe((data) => {
+  //       console.log(data);
+  //     });
+  // }
+  invoiceFormUpload(data: any) {
+    return this.http.post(`${serverURL}/partner/invoice`, data);
+  }
+
+  invoiceFileUpload(data: any) {
+    return this.http.post<any>(`${serverURL}/partner/multifiles`, data);
   }
 }

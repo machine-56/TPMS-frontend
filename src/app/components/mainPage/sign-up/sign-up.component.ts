@@ -17,6 +17,7 @@ export class SignUpComponent implements OnInit {
     post: '',
     compname: '',
     phoneNo: '',
+    approve: false,
   };
   constructor(private signupService: SignupService, private router: Router) {}
 
