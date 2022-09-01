@@ -1,64 +1,88 @@
-<!-- blue banner -->
-<div class="container-fluid">
-  <div class="row">
-    <div class="bg-info py-5">
-      <div class="container">
-        <div class="row">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a routerLink="/finance/dashboard"
-                  ><i class="fa-solid fa-home"></i
-                ></a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Work Order
-              </li>
-            </ol>
-          </nav>
+<!-- side nav -->
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+      <a routerLink="/">
+        <img src="/assets/images/logo.svg" alt="" width="308" height="75" style="padding-top: 10px; padding-bottom: 10px;" />
+      </a>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <img
+      class="profile mat-elevation-z8"
+      src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+    />
+
+    <h4 class="name"></h4>
+    <p class="company"></p>
+
+    <mat-divider></mat-divider>
+    
+    <button mat-button class="menu-button" routerLink="/finance/payment">
+      <mat-icon>receipt</mat-icon>
+      <span>Payment</span>
+    </button>
+    <!-- <button mat-button class="menu-button" routerLink="">
+      <mat-icon>dashboard</mat-icon>
+      <span>dashboard</span>
+    </button> -->
+    <button mat-button class="menu-button" routerLink="/finance/workorder">
+      <mat-icon>assignment</mat-icon>
+      <span>Work order</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Log Out</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <!-- work order -->
+      <div class="container margin">
+        <div>
+          <h3>New Work Orders</h3>
+        </div>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Work Order No</th>
+                <th scope="col">Assigned To</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let wo of workorder">
+                <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Work Order No">
+                  {{ wo.woid }}
+                </td>
+                <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Assigned To">
+                  {{ wo.partner_name }}
+                </td>
+                <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Amount">
+                  {{ wo.amount }}
+                </td>
+                <td *ngIf="wo.woid && wo.partner_name != ''">
+                  <i
+                    class="fa-solid fa-list-ul"
+                    style="cursor: pointer"
+                    (click)="detailedView(wo.woid)"
+                  ></i>
+                </td>
+                <td *ngIf="wo.woid && wo.partner_name != ''">
+                  <button class="btn" (click)="fnApv(wo._id)">Approve</button
+                  ><button class="btn" (click)="fnDeny(wo._id)">Deny</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<!-- work order -->
-<div class="container margin">
-  <div>
-    <h3>New Work Orders</h3>
-  </div>
-  <div class="table-container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Work Order No</th>
-          <th scope="col">Assigned To</th>
-          <th scope="col">Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let wo of workorder">
-          <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Work Order No">
-            {{ wo.woid }}
-          </td>
-          <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Assigned To">
-            {{ wo.partner_name }}
-          </td>
-          <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Amount">
-            {{ wo.amount }}
-          </td>
-          <td *ngIf="wo.woid && wo.partner_name != ''">
-            <i
-              class="fa-solid fa-list-ul"
-              style="cursor: pointer"
-              (click)="detailedView(wo.woid)"
-            ></i>
-          </td>
-          <td *ngIf="wo.woid && wo.partner_name != ''">
-            <button class="btn" (click)="fnApv(wo._id)">Approve</button
-            ><button class="btn" (click)="fnDeny(wo._id)">Deny</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
