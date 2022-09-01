@@ -1,0 +1,44 @@
+<!-- side nav -->
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+        <a routerLink="/">
+          <img src="/assets/images/logo.svg" alt="" width="308" height="75" style="padding-top: 10px; padding-bottom: 10px;" />
+        </a>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+      <img
+        class="profile mat-elevation-z8"
+        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+      />
+  
+      <h4 class="name"></h4>
+      <p class="company"></p>
+  
+      <mat-divider></mat-divider>
+      
+      <button mat-button class="menu-button" routerLink="">
+        <mat-icon>receipt</mat-icon>
+        <span>Payment</span>
+      </button>
+      
+      <button mat-button class="menu-button" routerLink="">
+        <mat-icon>assignment</mat-icon>
+        <span>Work order</span>
+      </button>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" routerLink="">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Log Out</span>
+      </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- content -->
+    </mat-sidenav-content>
+</mat-sidenav-container>

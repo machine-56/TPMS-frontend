@@ -1,43 +1,71 @@
-<!-- blue banner -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="bg-info py-5">
-            <div class="container">
-                <div class="row">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a routerLink="/finance/dashboard"><i class="fa-solid fa-home"></i></a></li>
-                            <li class="breadcrumb-item" aria-current="page"><a routerLink="/finance/payment">Payment</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{invono}}</li>
-                        </ol>
-                    </nav>
-                </div>
+<!-- side nav -->
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+        <a routerLink="/">
+          <img src="/assets/images/logo.svg" alt="" width="308" height="75" style="padding-top: 10px; padding-bottom: 10px;" />
+        </a>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+      <img
+        class="profile mat-elevation-z8"
+        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+      />
+  
+      <h4 class="name"></h4>
+      <p class="company"></p>
+  
+      <mat-divider></mat-divider>
+      
+      <button mat-button class="menu-button" routerLink="/finance/payment">
+        <mat-icon>receipt</mat-icon>
+        <span>Payment</span>
+      </button>
+      <!-- <button mat-button class="menu-button" routerLink="">
+        <mat-icon>dashboard</mat-icon>
+        <span>dashboard</span>
+      </button> -->
+      <button mat-button class="menu-button" routerLink="/finance/workorder">
+        <mat-icon>assignment</mat-icon>
+        <span>Work order</span>
+      </button>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" routerLink="">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Log Out</span>
+      </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- invoice -->
+        <div class="container">
+            <iframe class="invo" [src]='safeUrl' frameborder="1"></iframe>
+        </div>
+        <!-- buttons -->
+        <div class="container">
+            <div class="navigation">
+                <button class="btn" routerLink="/finance/payment">Back</button>
+                <button class="btn">Pay</button>
+                <button class="btn"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Comment</button>
+            </div>
+            <div class="comment">
+                  <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Comments</label>
+                        </div>
+                        <div class="navigation">
+                            <button class="btn">Submit</button>
+                        </div>
+                    </div>
+                  </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- invoice -->
-<div class="container">
-    <iframe class="invo" [src]='safeUrl' frameborder="1"></iframe>
-</div>
-<!-- buttons -->
-<div class="container">
-    <div class="navigation">
-        <button class="btn" routerLink="/finance/payment">Back</button>
-        <button class="btn">Pay</button>
-        <button class="btn"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Comment</button>
-    </div>
-    <div class="comment">
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Comments</label>
-                </div>
-                <div class="navigation">
-                    <button class="btn">Submit</button>
-                </div>
-            </div>
-          </div>
-    </div>
-</div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

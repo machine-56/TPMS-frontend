@@ -1,47 +1,76 @@
-<!-- blue banner -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="bg-info py-5">
-            <div class="container">
-                <div class="row">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a routerLink="/finance/dashboard"><i class="fa-solid fa-home"></i></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Payment</li>
-                        </ol>
-                    </nav>
-                </div>
+<!-- side nav -->
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+        <a routerLink="/">
+          <img src="/assets/images/logo.svg" alt="" width="308" height="75" style="padding-top: 10px; padding-bottom: 10px;" />
+        </a>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+      <img
+        class="profile mat-elevation-z8"
+        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+      />
+  
+      <h4 class="name">Admin</h4>
+      <p class="company">ICTAK</p>
+  
+      <mat-divider></mat-divider>
+      
+      <button mat-button class="menu-button" routerLink="/finance/payment">
+        <mat-icon>receipt</mat-icon>
+        <span>Payment</span>
+      </button>
+      <!-- <button mat-button class="menu-button" routerLink="">
+        <mat-icon>dashboard</mat-icon>
+        <span>dashboard</span>
+      </button> -->
+      <button mat-button class="menu-button" routerLink="/finance/workorder">
+        <mat-icon>assignment</mat-icon>
+        <span>Work order</span>
+      </button>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" routerLink="">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Log Out</span>
+      </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- table -->
+        <div class="container">
+            <div id="heading">
+                <h3>Payment Info</h3>
+            </div>
+            <div class="card">
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th scope="col">Work Order No</th>
+                            <th scope="col">Invoice No</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let payment of payments" [class.green]="payment.stat=='paid'" [class.red]="payment.stat=='overdue'">
+                            <td data-label="Work Order No" >{{payment.woid}}</td>
+                            <td data-label="Invoice No" >{{payment.invono}}</td>
+                            <td data-label="Status" >{{payment.stat}}</td>
+                            <td>
+                                <i class="fa-solid fa-list-ul" style=" color:black; cursor:pointer" (click)="detailedView(payment.invono)"></i>
+                            </td>
+                            <td *ngIf="payment.stat!='paid'"><button class="btn btn-light" (click)="fnpay(payment.woid)">pay</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-</div>
-<!-- table -->
-<div class="container">
-    <div id="heading">
-        <h3>Payment Info</h3>
-    </div>
-    <div class="card">
-        <table class="table ">
-            <thead>
-                <tr>
-                    <th scope="col">Work Order No</th>
-                    <th scope="col">Invoice No</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let payment of payments" [class.green]="payment.stat=='paid'" [class.red]="payment.stat=='overdue'">
-                    <td data-label="Work Order No" >{{payment.woid}}</td>
-                    <td data-label="Invoice No" >{{payment.invono}}</td>
-                    <td data-label="Status" >{{payment.stat}}</td>
-                    <td>
-                        <i class="fa-solid fa-list-ul" style=" color:black; cursor:pointer" (click)="detailedView(payment.invono)"></i>
-                    </td>
-                    <td *ngIf="payment.stat!='paid'"><button class="btn btn-light" (click)="fnpay(payment.woid)">pay</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
   
