@@ -13,6 +13,7 @@ export class FinanceEachPaymentComponent implements OnInit {
   safeUrl: any;
   data: any;
   link: any;
+  fileName: any;
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -20,11 +21,13 @@ export class FinanceEachPaymentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.fileName = localStorage.getItem('fileName');
+
     // this.link = 'https://elgoog.im/breakout/';
-    this.link = '';
+    this.link = `http://localhost:4156/api/finance/payment/${this.fileName}`;
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.link);
 
-    this.data = '1662038732194';
-    this.financeService.getInvo(this.data);
+    // this.data = '1662038732194';
+    // this.financeService.getInvo(this.data);
   }
 }

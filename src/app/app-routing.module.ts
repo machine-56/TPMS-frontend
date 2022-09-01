@@ -36,10 +36,10 @@ const routes: Routes = [
   { path: 'admin/invoice', component: AdminApvInvoiceComponent },
   { path: 'admin/invoice/:id', component: AdminEachInvoiceComponent },
   { path: 'admin/payment', component: AdminPaymentComponent },
-  { path: 'superadmin/approve', component:AdminApvPartnerComponent},
+  { path: 'superadmin/approve', component: AdminApvPartnerComponent },
   { path: 'finance/dashboard', component: FinanceDashboardComponent },
   { path: 'finance/payment', component: FinancePaymentComponent },
-  { path: 'finance/payment/:id', component: FinanceEachPaymentComponent },
+  { path: 'finance/payment/view', component: FinanceEachPaymentComponent }, //changed
   { path: 'finance/workorder', component: FinanceApvWorkorderComponent },
   { path: 'finance/workorder/:id', component: FinanceEachWorkorderComponent },
   { path: 'finance/invoice', component: FinanceInvoiceComponent },

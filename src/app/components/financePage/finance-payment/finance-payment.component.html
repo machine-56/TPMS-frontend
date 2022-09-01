@@ -4,10 +4,19 @@
     <div class="bg-info py-5">
       <div class="container">
         <div class="row">
-          <h1 class="text-light"><span class="fw-lighter"><i class="fa-solid fa-chart-line"></i></span> Dashboard</h1>
+          <h1 class="text-light">
+            <span class="fw-lighter"
+              ><i class="fa-solid fa-chart-line"></i
+            ></span>
+            Dashboard
+          </h1>
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a routerLink="/finance/dashboard"><i style="color: #000;" class="fa-solid fa-home"></i></a></li>
+              <li class="breadcrumb-item">
+                <a routerLink="/finance/dashboard"
+                  ><i style="color: #000" class="fa-solid fa-home"></i
+                ></a>
+              </li>
               <li class="breadcrumb-item">payment</li>
             </ol>
           </nav>
@@ -22,7 +31,7 @@
       <h3><b>Payment Info</b></h3>
     </div>
     <div class="card">
-      <table class="table ">
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">Work Order No</th>
@@ -31,14 +40,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let payment of payments" [class.green]="payment.stat=='paid'" [class.red]="payment.stat=='overdue'">
-            <td data-label="Work Order No" >{{payment.woid}}</td>
-            <td data-label="Invoice No" >{{payment.invono}}</td>
-            <td data-label="Status" >{{payment.paystatus}}</td>
+          <tr
+            *ngFor="let payment of payments"
+            [class.green]="payment.stat == 'paid'"
+            [class.red]="payment.stat == 'overdue'"
+          >
+            <td data-label="Work Order No">{{ payment.woid }}</td>
+            <td data-label="Invoice No">{{ payment.invono }}</td>
+            <td data-label="Status">{{ payment.paystatus }}</td>
             <td>
-              <i class="fa-solid fa-list-ul" style=" color:black; cursor:pointer" 
-              (click)="detailedView(payment.invono)"
-              data-bs-toggle="tooltip" data-bs-placement="right" title="Details"></i>
+              <i
+                class="fa-solid fa-list-ul"
+                style="color: black; cursor: pointer"
+                (click)="detailedView(payment.fileName, payment.invono)"
+                data-bs-toggle="tooltip"
+                data-bs-placement="right"
+                title="Details"
+              ></i>
             </td>
           </tr>
         </tbody>
@@ -46,4 +64,3 @@
     </div>
   </div>
 </div>
-  
