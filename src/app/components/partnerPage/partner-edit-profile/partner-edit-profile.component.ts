@@ -17,16 +17,16 @@ export class PartnerEditProfileComponent implements OnInit {
     uname: '',
     pwd: '',
     post: '',
-    pid: '',
+    partner_id: '',
     pan: '',
     email: '',
     phoneNo: '',
-    compname: '',
+    company: '',
   };
   constructor(private router: Router, private partnerService: PartnerService) {}
 
   ngOnInit(): void {
-    let uid = '6309171b58dd3ac67bdaa4fb';
+    let uid = localStorage.getItem("user");
     this.partnerService.getProfile(uid).subscribe((data: any) => {
       console.log(data);
       // this.profile = data;

@@ -23,5 +23,8 @@ export class LoginService {
   getToken(){
     return localStorage.getItem('token');
   }
+  getRole(){
+    return localStorage.getItem('role')
+  }
  
 }

@@ -1,78 +1,53 @@
-<!-- side nav -->
-<mat-toolbar class="mat-elevation-z8">
-    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
-    </button>
-        <a routerLink="/">
-          <img src="/assets/images/logo.svg" alt="" width="308" height="75" style="padding-top: 10px; padding-bottom: 10px;" />
-        </a>
-  </mat-toolbar>
-  
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-      <img
-        class="profile mat-elevation-z8"
-        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-      />
-  
-      <h4 class="name"></h4>
-      <p class="company"></p>
-  
-      <mat-divider></mat-divider>
-      
-      <button mat-button class="menu-button" routerLink="/finance/payment">
-        <mat-icon>receipt</mat-icon>
-        <span>Payment</span>
-      </button>
-      <!-- <button mat-button class="menu-button" routerLink="">
-        <mat-icon>dashboard</mat-icon>
-        <span>dashboard</span>
-      </button> -->
-      <button mat-button class="menu-button" routerLink="/finance/workorder">
-        <mat-icon>assignment</mat-icon>
-        <span>Work order</span>
-      </button>
-  
-      <mat-divider></mat-divider>
-  
-      <button mat-button class="menu-button" routerLink="">
-        <mat-icon>exit_to_app</mat-icon>
-        <span>Log Out</span>
-      </button>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <!-- buttons -->
-        <div class="container">
-            <div class="navigation">
-                <button class="btn" routerLink="/finance/workorder">Back</button>
-                <button class="btn">Approve</button>
-                <button class="btn"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Deny</button>
-            </div>
-            <div class="comment">
-                  <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2">Comments</label>
-                        </div>
-                        <div class="navigation">
-                            <button class="btn">Submit</button>
-                        </div>
-                    </div>
-                  </div>
-            </div>
+<div class="container-fluid">
+  <!-- blue banner -->
+  <div class="row">
+    <div class="bg-info py-5">
+      <div class="container">
+        <div class="row">
+          <h1 class="text-light"><span class="fw-lighter"><i class="fa-solid fa-chart-line"></i></span> Dashboard</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/finance/dashboard"><i style="color: #000;" class="fa-solid fa-home"></i></a></li>
+              <li class="breadcrumb-item">Workorder</li>
+            </ol>
+          </nav>
         </div>
-        <!-- work order -->
-        <div class="container">
-            <div class="web1 shadow">
-                <iframe
-                    src="https://file-examples.com/storage/fe5467a6a163010b197fb20/2017/10/file-sample_150kB.pdf"
-                    width="100%"
-                    height="100%"
-                >
-                </iframe>
-             </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- each invoice -->
+  <div class="container margin">
+    <!-- buttons -->
+    <div class="navigation">
+      <button class="btn" routerLink="/finance/workorder">Back</button>
+      <button class="btn">Approve</button>
+      <button class="btn"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Deny</button>
+    </div>
+    <div class="comment">
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            <label for="floatingTextarea2">Comments</label>
+          </div>
+          <div class="navigation">
+            <button class="btn">Submit</button>
+          </div>
         </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+      </div>
+    </div>
+  </div>
+  <!-- work order -->
+  <div class="container margin">
+    <div class="web1 shadow">
+      <iframe
+        src="https://getbootstrap.com/docs/5.1/components/breadcrumb/"
+        width="100%"
+        height="100%"
+        >
+      </iframe>
+    </div>
+  </div>
+</div>
+ 

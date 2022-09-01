@@ -18,7 +18,7 @@
   
   <div class="container margin">
     <div class="row">
-      <div *ngFor="let wo of wos" class="col-sm-6">
+      <div *ngFor="let wo of wos" class="col-sm-4">
         <div [class.border-success]="wo.stat=='new'" [class.border-dark]="wo.stat=='fin'" (click)="detailedView(wo.woid)" class="card mb-3">
           <div class="card-body">
             <h1 class="card-title">{{wo.woid}}</h1>

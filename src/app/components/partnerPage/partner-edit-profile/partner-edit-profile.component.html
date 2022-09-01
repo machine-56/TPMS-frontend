@@ -25,6 +25,7 @@
             <div class="mb-3 col-lg-6">
               <label for="name" class="form-label">Partner Name</label>
               <input
+                disabled
                 class="form-control"
                 [(ngModel)]="profile.name"
                 type="text"
@@ -58,10 +59,11 @@
             <div class="mb-3 col-lg-6">
               <label for="id" class="form-label">Partner Id</label>
               <input
+                disabled
                 class="form-control"
                 type="text"
                 name="id"
-                [(ngModel)]="profile.pid"
+                [(ngModel)]="profile.partner_id"
               />
             </div>
             <div class="mb-3 col-lg-6">
@@ -94,10 +96,11 @@
             <div class="mb-3 col-lg-6">
               <label for="company" class="form-label">Comapany Name</label>
               <input
+                disabled
                 class="form-control"
                 type="text"
                 name="company"
-                [(ngModel)]="profile.compname"
+                [(ngModel)]="profile.company"
               />
             </div>
             <div class="col-md-12 mt-3 d-flex justify-content-center">

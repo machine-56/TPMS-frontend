@@ -20,7 +20,6 @@ export class FinanceService {
   }
   
   apvfn(data: any){
-    console.log(data)
     return this.http.put(`${this.logurl}/workorder/apv`,{"id":data})
   }
 
@@ -28,7 +27,15 @@ export class FinanceService {
     return this.http.delete(`${this.logurl}/workorder/remove/`+data)
   }
 
+  getPayment(){
+    return this.http.get(`${this.logurl}/payment`)
+  }
+
   payfn(data: any){
     return this.http.put(`${this.logurl}/payment/pay`,{"id":data})
+  }
+
+  getInvo(data: any){
+    return this.http.get(`${this.logurl}/invoice/`+data).subscribe(()=>{})
   }
 }

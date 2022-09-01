@@ -20,27 +20,27 @@ export class PartnerProfileComponent implements OnInit {
     uname: '',
     pwd: '',
     post: '',
-    pid: '',
+    partner_id: '',
     pan: '',
     email: '',
     phoneNo: '',
-    compname: '',
+    company: '',
   };
-  constructor(private partnerService: PartnerService) {}
+  constructor(private partnerService: PartnerService, private router: Router) {}
 
   // uid = '630cd9f83c17e58710676441';
 
   ngOnInit(): void {
-    let uid = '6309171b58dd3ac67bdaa4fb';
+    let uid = localStorage.getItem("user");
     this.partnerService.getProfile(uid).subscribe((data: any) => {
-      console.log(data);
+      console.log(`components ${data}`);
       // this.profile = data;
       this.profile = JSON.parse(JSON.stringify(data));
     });
   }
 
-  editProfView(data: any) {
-    // localStorage.setItem("")
+  editProfView() {
+    this.router.navigate(['/partner/profile/edit']);
   }
 
   // to show password in profile view

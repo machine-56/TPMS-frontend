@@ -81,6 +81,19 @@
           >* Due date is required<br
         /></span>
       </div>
+      <div >
+        <!-- this one isn't working -->
+        <input
+          hidden
+          type="text"
+          value="pending"
+          class="form-control"
+          name="paystatus"
+          #paystatus="ngModel"
+          [(ngModel)]="invoice.paystatus"
+          id="paystatus"
+        >
+      </div>
       <div class="mb-3">
         <label for="file" class="form-label">Attach Inovice</label>
         <input

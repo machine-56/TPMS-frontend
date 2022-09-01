@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'admin/invoice', component: AdminApvInvoiceComponent },
   { path: 'admin/invoice/:id', component: AdminEachInvoiceComponent },
   { path: 'admin/payment', component: AdminPaymentComponent },
-  { path: 'admin/partner', component:AdminApvPartnerComponent},
+  { path: 'superadmin/approve', component:AdminApvPartnerComponent},
   { path: 'finance/dashboard', component: FinanceDashboardComponent },
   { path: 'finance/payment', component: FinancePaymentComponent },
   { path: 'finance/payment/:id', component: FinanceEachPaymentComponent },

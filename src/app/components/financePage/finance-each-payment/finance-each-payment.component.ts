@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { FinanceService } from 'src/app/services/finance.service';
 
 @Component({
   selector: 'app-finance-each-payment',
@@ -13,12 +14,16 @@ export class FinanceEachPaymentComponent implements OnInit {
 
     safeUrl: any;
     data:any;
+    link:any;
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer, private financeService: FinanceService) { }
 
   ngOnInit(): void {
-    this.data = 'https://machine-56.github.io/Portfolio-Website/'
-    this.safeUrl= this.sanitizer.bypassSecurityTrustResourceUrl(this.data)
+    this.link = 'https://elgoog.im/breakout/';
+    this.safeUrl= this.sanitizer.bypassSecurityTrustResourceUrl(this.link)
+    
+    this.data = '1662038732194'
+    this.financeService.getInvo(this.data)
   }
 
 }

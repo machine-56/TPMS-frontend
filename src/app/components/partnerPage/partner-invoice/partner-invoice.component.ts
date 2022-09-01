@@ -35,7 +35,7 @@ export class PartnerInvoiceComponent implements OnInit {
     //do the form upload call on successfull completion of fileupload
     this.partnerService.invoiceFileUpload(formdata).subscribe((res) => {
       this.multipleInput.nativeElement.value = '';
-      console.log(res.path);
+      console.log(`path ${res.path}`);
 
       this.invoiceFormUpload(res.path[0]);
       this.displayMultipleInvoices = true;
@@ -48,7 +48,7 @@ export class PartnerInvoiceComponent implements OnInit {
     this.partnerService.invoiceFormUpload(this.invoice).subscribe({
       next: (succ: any) => {
         if (succ.success) {
-          console.log('success');
+          console.log('success invoice uploaded');
         }
       },
       error: (err) => {

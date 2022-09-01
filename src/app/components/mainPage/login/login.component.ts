@@ -26,9 +26,12 @@ export class LoginComponent implements OnInit {
       console.log(res.post);
       localStorage.setItem('token',res.token);
       localStorage.setItem('role',res.post);
-      if (res.post === 'admin'|| res.post === 'Admin') {
-        this.router.navigate([`/admin/dashboard`]);
-      }else if(res.post=='Partner'){ this.router.navigate([`/partner/dashboard`]);}
+      if (res.post === 'Admin') {this.router.navigate([`/admin/dashboard`]);}
+      else if(res.post === 'superadmin'){this.router.navigate([`superadmin/approve`]);}
+      else if(res.post=='Partner'){
+        localStorage.setItem("user",res.username)
+        this.router.navigate([`/partner/dashboard`]);
+      }
       else if(res.post=='Finance'){ this.router.navigate([`/finance/dashboard`]);}
     },(err) => {
       console.log(err.error.message);

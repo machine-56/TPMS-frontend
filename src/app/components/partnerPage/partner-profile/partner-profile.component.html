@@ -1,12 +1,5 @@
 <div class="container">
   <!--profile view-->
-  <div class="row">
-    <div class="navigation mt-4 d-flex justify-content-center">
-      <button class="btn btn-light" routerLink="/partner/dashboard">
-        Back
-      </button>
-    </div>
-  </div>
   <div class="row my-3 d-flex justify-content-center">
     <div class="col-md-6">
       <div class="card">
@@ -34,17 +27,8 @@
               <span>:{{ profile.uname }}</span>
             </div>
             <div class="mb-3 col-md-12">
-              <label for="password" class="form-label">Password </label>
-              <span [hidden]="passw">:{{ profile.pwd }}</span>
-              <br />
-              <small for=""
-                ><input type="checkbox" (click)="pass($event)" /> Show
-                Password</small
-              >
-            </div>
-            <div class="mb-3 col-md-12">
               <label for="id" class="form-label">Partner Id </label>
-              <span>:{{ profile.pid }}</span>
+              <span>:{{ profile.partner_id }}</span>
             </div>
             <div class="mb-3 col-md-12">
               <label for="email" class="form-label">Email Id </label>
@@ -60,15 +44,20 @@
             </div>
             <div class="mb-3 col-md-12">
               <label for="company" class="form-label">Comapany Name :</label>
-              <span>:{{ profile.compname }}</span>
+              <span>:{{ profile.company }}</span>
             </div>
             <div class="col-md-12 mt-3 d-flex justify-content-center">
               <button
-                class="btn btn-lg btn-primary"
-                routerLink="/partner/profile/edit"
-                (click)="editProfView(profile)"
+                class="btn btn-lg btn-primary mr-3"
+                (click)="editProfView()"
               >
                 Edit
+              </button>
+              <button
+                class="btn btn-lg btn-light"
+                routerLink="/partner/dashboard"
+              >
+                Back
               </button>
             </div>
           </form>
