@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PartnerService } from 'src/app/services/partner.service';
 
 @Component({
   selector: 'app-partner-workorder',
@@ -8,30 +9,17 @@ import { Router } from '@angular/router';
 })
 export class PartnerWorkorderComponent implements OnInit {
 
-  wos=[{
-    woid:'test/wo/user/uid/001',
-    name: 'Event name',
-    date:'14/10/2022',
-    stat: 'new'
-  },
-  {
-    woid:'test/wo/user/uid/002',
-    name: 'Event name',
-    date:'22/09/2022',
-    stat: 'fin'
-  },
-  {
-    woid:'test/wo/user/uid/003',
-    name: 'Event name',
-    date:'15/11/2022',
-    stat: 'new'
-  }
-]
+  user:any;
+  workOrders:any=[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private partnerService: PartnerService) { }
 
   ngOnInit(): void {
+    this.user = localStorage.getItem("user");
     localStorage.removeItem("woid");
+    this.partnerService.getWorkOrder(this.user).subscribe((data)=>{
+      this.workOrders = JSON.parse(JSON.stringify(data));
+    })
   }
 
   detailedView(woid: any){

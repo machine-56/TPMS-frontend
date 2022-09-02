@@ -42,10 +42,7 @@ export class PartnerEditProfileComponent implements OnInit {
   update() {
     let answer = confirm('Are you sure you want to update profile');
     if (answer) {
-      let uid = '6309171b58dd3ac67bdaa4fb';
-
-      this.partnerService.updateProfile(this.profile);
-      localStorage.removeItem(uid);
+      this.partnerService.updateProfile(this.profile).subscribe(()=>{})
       // alert('success');
       this.router.navigate(['partner/profile']);
     }

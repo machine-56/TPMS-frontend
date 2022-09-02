@@ -35,11 +35,10 @@ export class PartnerInvoiceComponent implements OnInit {
     //do the form upload call on successfull completion of fileupload
     this.partnerService.invoiceFileUpload(formdata).subscribe((res) => {
       this.multipleInput.nativeElement.value = '';
-      console.log(`path ${res.path}`);
-
       this.invoiceFormUpload(res.path[0]);
       this.displayMultipleInvoices = true;
     });
+    this.router.navigate(['/partner/workorder/']);
   }
 
   invoiceFormUpload(invoiceFileName: any) {

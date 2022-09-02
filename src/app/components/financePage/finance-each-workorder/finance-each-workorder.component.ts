@@ -22,8 +22,8 @@ export class FinanceEachWorkorderComponent implements OnInit {
     });
   }
 
-  fnApv(data: any){
-    this.financeService.apvFn(data)
+  fnApv(data: any, pname: any){
+    this.financeService.apvFn(data, pname)
     .subscribe(()=>{})
     this.router.navigate(['/finance/workorder'])
   }

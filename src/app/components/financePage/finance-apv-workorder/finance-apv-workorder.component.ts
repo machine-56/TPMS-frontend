@@ -17,6 +17,7 @@ export class FinanceApvWorkorderComponent implements OnInit {
       date_start: '',
       date_end: '',
       amount:'',
+      wo_status:'',
     },
   ];
 

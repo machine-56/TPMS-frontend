@@ -19,8 +19,8 @@ export class FinanceService {
     return this.http.post(`${this.logurl}/workorder/each`,{"woid":data});
   }
   
-  apvFn(data: any){
-    return this.http.put(`${this.logurl}/workorder/apv`,{"id":data})
+  apvFn(data: any, pname:any){
+    return this.http.put(`${this.logurl}/workorder/apv`,{"id":data, "pname":pname})
   }
 
   deleteFn(data: any){

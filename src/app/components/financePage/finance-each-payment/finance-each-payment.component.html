@@ -23,13 +23,13 @@
   </div>
 
   <!-- invoice  -->
-  <div class="container margin">
+  <div class="container ">
     <!-- invoice -->
-    <div class="container">
-      <iframe class="invo" [src]="safeUrl" frameborder="1"></iframe>
+    <div class="row mt-5">
+      <iframe class="col-10 m-auto invo shadow py-3" [src]="safeUrl" frameborder="1"></iframe>
     </div>
     <!-- buttons -->
-    <div class="container">
+    <div class="row my-2">
       <div class="navigation">
         <button class="btn btn-light" (click)="fnPay()">Pay</button>
         <button

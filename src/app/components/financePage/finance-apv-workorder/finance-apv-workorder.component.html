@@ -17,32 +17,32 @@
   </div>
 
   <!-- work order -->
-  <div class="container margin">
-  <div >
-    <h3>New Work Orders</h3>
-  </div>
-  <div class="table-container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Work Order No</th>
-          <th scope="col">Assigned To</th>
-          <th scope="col">Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let wo of workorder">
-          <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Work Order No">{{ wo.woid }}</td>
-          <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Assigned To">{{ wo.partner_name }}</td>
-          <td *ngIf="wo.woid && wo.partner_name != ''" data-label="Amount">{{ wo.amount }}</td>
-          <td *ngIf="wo.woid && wo.partner_name != ''">
-            <i class="fa-solid fa-list-ul" style="cursor: pointer" (click)="detailedView(wo.woid)"
-              data-bs-toggle="tooltip" data-bs-placement="right" title="Details"
-            ></i>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="container py-2">
+    <div class="row my-2">
+      <h3 class="my-3 fw-bold">New Work Orders</h3>
+      <div class="table">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Partner Name</th>
+              <th scope="col">Program Name</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let wo of workorder">
+              <td *ngIf="wo.wo_status =='pending'" data-label="Partner Name">{{ wo.partner_name }}</td>
+              <td *ngIf="wo.wo_status =='pending'" data-label="Program Name">{{ wo.program_name }}</td>
+              <td *ngIf="wo.wo_status =='pending'" data-label="Amount">{{ wo.amount }}</td>
+              <td *ngIf="wo.wo_status =='pending'" >
+                <i class="fa-solid fa-list-ul" style="cursor: pointer" (click)="detailedView(wo.woid)"
+                  data-bs-toggle="tooltip" data-bs-placement="right" title="Details"
+                ></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
   </div>
   </div>
 </div>

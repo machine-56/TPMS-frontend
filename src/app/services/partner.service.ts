@@ -8,25 +8,22 @@ import { serverURL } from '../server';
 export class PartnerService {
   constructor(private http: HttpClient) {}
 
+  getWorkOrder(data: any){
+    return this.http.post(`${serverURL}/partner/workorder`,{"uname":data});
+  }
+
+  eachWorkorder(data: any){
+    return this.http.post(`${serverURL}/partner/workorder/each`,{"woid":data});
+  }
+
   getProfile(uid: any) {
-    return this.http.get(`${serverURL}/partner/` + uid);
+    return this.http.get(`${serverURL}/partner/profile/`+uid)
   }
 
   updateProfile(profile: any) {
-    console.log('profile update');
-    return this.http
-      .put(`${serverURL}/partner/edit`, profile)
-      .subscribe((data) => {
-        console.log(data);
-      });
+    return this.http.put(`${serverURL}/partner/edit`, profile)
   }
-  // sendInvoice(item: any) {
-  //   return this.http
-  //     .post(`${serverURL}/partner/invoice`, item)
-  //     .subscribe((data) => {
-  //       console.log(data);
-  //     });
-  // }
+
   invoiceFormUpload(data: any) {
     return this.http.post(`${serverURL}/partner/invoice`, data);
   }

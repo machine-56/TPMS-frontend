@@ -33,8 +33,6 @@ export class PartnerProfileComponent implements OnInit {
   ngOnInit(): void {
     let uid = localStorage.getItem("user");
     this.partnerService.getProfile(uid).subscribe((data: any) => {
-      console.log(`components ${data}`);
-      // this.profile = data;
       this.profile = JSON.parse(JSON.stringify(data));
     });
   }

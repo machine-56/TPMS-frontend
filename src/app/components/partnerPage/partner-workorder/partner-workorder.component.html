@@ -1,29 +1,29 @@
 <!-- blue banner -->
 <div class="container-fluid">
-    <div class="row">
-      <div class="bg-info py-5">
-        <div class="container">
-          <div class="row">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a routerLink="/partner/dashboard"><i style="color: #000;" class="fa-solid fa-home"></i></a></li>
-                <li class="breadcrumb-item active" aria-current="page">Work Order</li>
-              </ol>
-            </nav>
-          </div>
+  <div class="row">
+    <div class="bg-info py-5">
+      <div class="container">
+        <div class="row">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/partner/dashboard"><i style="color: #000;" class="fa-solid fa-home"></i></a></li>
+              <li class="breadcrumb-item active">Workorder</li>
+            </ol>
+          </nav>
         </div>
       </div>
     </div>
   </div>
+</div>
   
   <div class="container margin">
     <div class="row">
-      <div *ngFor="let wo of wos" class="col-sm-4">
-        <div [class.border-success]="wo.stat=='new'" [class.border-dark]="wo.stat=='fin'" (click)="detailedView(wo.woid)" class="card mb-3">
+      <div *ngFor="let wo of workOrders" class="col-sm-4">
+        <div *ngIf="wo.woid!=''" (click)="detailedView(wo.woid)" class="card mb-3">
           <div class="card-body">
             <h1 class="card-title">{{wo.woid}}</h1>
-            <p class="card-text">{{wo.name}}</p>
-            <p class="card-text">{{wo.date}}</p>
+            <p class="card-text">{{wo.program_name}}</p>
+            <p class="card-text">{{wo.date_start | date:'mediumDate'}}</p>
           </div>
         </div>
       </div>
