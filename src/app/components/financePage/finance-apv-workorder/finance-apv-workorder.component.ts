@@ -34,16 +34,4 @@ export class FinanceApvWorkorderComponent implements OnInit {
     this.router.navigate(['/finance/workorder/', woid]);
   }
 
-  fnApv(data: any){
-    this.financeService.apvfn(data)
-    .subscribe(()=>{})
-  }
-
-  fnDeny(data: any){
-    this.financeService.deletefn(data)
-    .subscribe(()=>{
-      // alert('Workorder denied');
-    })
-  }
-
 }

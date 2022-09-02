@@ -19,11 +19,11 @@ export class FinanceService {
     return this.http.post(`${this.logurl}/workorder/each`,{"woid":data});
   }
   
-  apvfn(data: any){
+  apvFn(data: any){
     return this.http.put(`${this.logurl}/workorder/apv`,{"id":data})
   }
 
-  deletefn(data: any){
+  deleteFn(data: any){
     return this.http.delete(`${this.logurl}/workorder/remove/`+data)
   }
 
@@ -31,11 +31,8 @@ export class FinanceService {
     return this.http.get(`${this.logurl}/payment`)
   }
 
-  payfn(data: any){
+  payFn(data: any){
     return this.http.put(`${this.logurl}/payment/pay`,{"id":data})
   }
 
-  getInvo(data: any){
-    return this.http.get(`${this.logurl}/invoice/`+data).subscribe(()=>{})
-  }
 }

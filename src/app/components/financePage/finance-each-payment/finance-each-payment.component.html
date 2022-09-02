@@ -12,15 +12,9 @@
           </h1>
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a routerLink="/finance/dashboard"
-                  ><i style="color: #000" class="fa-solid fa-home"></i
-                ></a>
-              </li>
-              <li class="breadcrumb-item">
-                <a routerLink="/finance/payment">payment</a>
-              </li>
-              <li class="breadcrumb-item">{{ invono }}</li>
+              <li class="breadcrumb-item"><a routerLink="/finance/dashboard"><i style="color: #000" class="fa-solid fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a routerLink="/finance/payment">payment</a></li>
+              <li class="breadcrumb-item active">{{data}}</li>
             </ol>
           </nav>
         </div>
@@ -35,9 +29,9 @@
       <iframe class="invo" [src]="safeUrl" frameborder="1"></iframe>
     </div>
     <!-- buttons -->
-    <div class="container" style="margin-bottom: 20%">
+    <div class="container">
       <div class="navigation">
-        <button class="btn btn-light">Pay</button>
+        <button class="btn btn-light" (click)="fnPay()">Pay</button>
         <button
           class="btn btn-light"
           data-bs-toggle="collapse"

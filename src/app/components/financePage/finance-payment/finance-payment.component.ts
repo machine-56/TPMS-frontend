@@ -13,19 +13,16 @@ export class FinancePaymentComponent implements OnInit {
   constructor(private router: Router, private financeService: FinanceService) {}
 
   ngOnInit(): void {
-    localStorage.removeItem('invono');
+    localStorage.removeItem('invo-id');
+    localStorage.removeItem('invo-file');
     this.financeService.getPayment().subscribe((data: any) => {
       this.payments = data;
     });
   }
 
-  detailedView(fileName: any, invono: any) {
-    localStorage.setItem('fileName', fileName.toString());
-    localStorage.setItem('invono', invono.toString());
-    this.router.navigate(['/finance/payment/view']);
-  }
-
-  fnpay(data: any) {
-    this.financeService.payfn(data).subscribe(() => {});
+  detailedView(data: any, file: any) {
+    localStorage.setItem('invo-id', data.toString() );
+    localStorage.setItem('invo-file', file.toString() );
+    this.router.navigate(['/finance/payment/'+file]);
   }
 }

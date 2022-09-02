@@ -4,20 +4,11 @@
     <div class="bg-info py-5">
       <div class="container">
         <div class="row">
-          <h1 class="text-light">
-            <span class="fw-lighter"
-              ><i class="fa-solid fa-chart-line"></i
-            ></span>
-            Dashboard
-          </h1>
+          <h1 class="text-light"><span class="fw-lighter"><i class="fa-solid fa-chart-line"></i></span>Dashboard</h1>
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a routerLink="/finance/dashboard"
-                  ><i style="color: #000" class="fa-solid fa-home"></i
-                ></a>
-              </li>
-              <li class="breadcrumb-item">payment</li>
+              <li class="breadcrumb-item"><a routerLink="/finance/dashboard"><i style="color: #000" class="fa-solid fa-home"></i></a></li>
+              <li class="breadcrumb-item active">payment</li>
             </ol>
           </nav>
         </div>
@@ -42,8 +33,8 @@
         <tbody>
           <tr
             *ngFor="let payment of payments"
-            [class.green]="payment.stat == 'paid'"
-            [class.red]="payment.stat == 'overdue'"
+            [class.green]="payment.paystatus == 'paid'"
+            [class.red]="payment.paystatus == 'overdue'"
           >
             <td data-label="Work Order No">{{ payment.woid }}</td>
             <td data-label="Invoice No">{{ payment.invono }}</td>
@@ -52,7 +43,7 @@
               <i
                 class="fa-solid fa-list-ul"
                 style="color: black; cursor: pointer"
-                (click)="detailedView(payment.fileName, payment.invono)"
+                (click)="detailedView(payment._id,payment.fileName)"
                 data-bs-toggle="tooltip"
                 data-bs-placement="right"
                 title="Details"

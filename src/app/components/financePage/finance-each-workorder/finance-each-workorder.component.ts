@@ -23,13 +23,13 @@ export class FinanceEachWorkorderComponent implements OnInit {
   }
 
   fnApv(data: any){
-    this.financeService.apvfn(data)
+    this.financeService.apvFn(data)
     .subscribe(()=>{})
     this.router.navigate(['/finance/workorder'])
   }
 
   fnDeny(data: any){
-    this.financeService.deletefn(data)
+    this.financeService.deleteFn(data)
     .subscribe(()=>{
       // alert('Workorder denied');
     })
