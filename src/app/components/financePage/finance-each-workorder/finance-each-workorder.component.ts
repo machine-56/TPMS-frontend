@@ -9,8 +9,8 @@ import { FinanceService } from 'src/app/services/finance.service';
 })
 export class FinanceEachWorkorderComponent implements OnInit {
 
-  public id: any;logo='/assets/images/logo.svg';
-  eachWO:any=[];
+  public id: any;logo='/assets/images/logo.png';
+  workorders:any=[];
   woid=localStorage.getItem("woid");
 
   constructor(private financeService: FinanceService, private router: Router) {}
@@ -18,7 +18,7 @@ export class FinanceEachWorkorderComponent implements OnInit {
   ngOnInit(): void {
     this.financeService.eachWorkOrder(this.woid)
     .subscribe((data)=>{
-      this.eachWO = JSON.parse(JSON.stringify(data));
+      this.workorders = JSON.parse(JSON.stringify(data));
     });
   }
 

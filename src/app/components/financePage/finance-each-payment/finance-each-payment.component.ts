@@ -15,7 +15,7 @@ export class FinanceEachPaymentComponent implements OnInit {
   data: any;
   link: any;
   uid:any;
-  constructor(private sanitizer: DomSanitizer, private financeService: FinanceService) {}
+  constructor(private sanitizer: DomSanitizer, private financeService: FinanceService, private router:Router) {}
 
   ngOnInit(): void {
     this.uid = localStorage.getItem('invo-id');
@@ -26,6 +26,9 @@ export class FinanceEachPaymentComponent implements OnInit {
 
   fnPay() {
     this.financeService.payFn(this.uid)
-    .subscribe(()=>{});
+    .subscribe(()=>{
+      alert('Invoice paid');
+      this.router.navigate(['finance/payment'])
+    });
   }
 }

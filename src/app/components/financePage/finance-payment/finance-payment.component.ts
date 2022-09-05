@@ -9,6 +9,7 @@ import { FinanceService } from 'src/app/services/finance.service';
 })
 export class FinancePaymentComponent implements OnInit {
   payments: any = [];
+  currentDateTime:Date =new Date();
 
   constructor(private router: Router, private financeService: FinanceService) {}
 
