@@ -38,7 +38,6 @@ export class PartnerInvoiceComponent implements OnInit {
       this.invoiceFormUpload(res.path[0]);
       this.displayMultipleInvoices = true;
     });
-    this.router.navigate(['/partner/workorder/']);
   }
 
   invoiceFormUpload(invoiceFileName: any) {
@@ -48,7 +47,10 @@ export class PartnerInvoiceComponent implements OnInit {
     this.partnerService.invoiceFormUpload(this.invoice).subscribe({
       next: (succ: any) => {
         if (succ.success) {
+          // message
           console.log('success invoice uploaded');
+          alert('success');
+          this.router.navigate(['/partner/workorder'])
         }
       },
       error: (err) => {
