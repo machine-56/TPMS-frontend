@@ -41,7 +41,12 @@ import { PartnerEachWorkorderComponent } from './components/partnerPage/partner-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PartnerEditProfileComponent } from './components/partnerPage/partner-edit-profile/partner-edit-profile.component';
 import { AdminApvPartnerComponent } from './components/adminPage/admin-apv-partner/admin-apv-partner.component';
-
+import {TokenInterceptorService} from './services/token-interceptor.service'
+import { AdminService } from './services/admin.service';
+import { FinanceService } from './services/finance.service';
+import { PartnerService } from './services/partner.service';
+import { LoginService } from './services/login.service';
+import { SignupService } from './services/signup.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +95,11 @@ import { AdminApvPartnerComponent } from './components/adminPage/admin-apv-partn
     // MatButtonModule,
     // MatIconModule,
   ],
-  providers: [],
+  providers: [AdminService,FinanceService,PartnerService,LoginService,SignupService,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
