@@ -1,16 +1,17 @@
-<!-- buttons -->
-<div class="container">
-    <div class="d-flex justify-content-center align-content-center my-3">
-        <button class="btn btn-light mx-1" routerLink="/admin/invoice">Back</button>
-        <button class="btn btn-light mx-1">Approve</button>
-        <button class="btn btn-light mx-1"  >Deny</button>
+<div class="container-fluid">
+  <!-- invoice  -->
+  <div class="container ">
+    <!-- invoice -->
+    <div class="row mt-5">
+      <iframe class="col-10 m-auto invo shadow py-3" [src]="safeUrl" frameborder="1"></iframe>
     </div>
-    <div class="web1 shadow">
-        <iframe
-            src="'pdfsrc'"
-            width="100%"
-            height="100%"
-        >
-        </iframe>
-     </div>
+    <!-- buttons -->
+    <div class="row my-2">
+      <div class=" col mb-4 navigation">
+        <button class="btn btn-light" (click)="fnApv()">Approve</button>
+        <button class="btn btn-light" (click)="fnDeny()">Deny</button>
+      </div>
+    </div>
+  </div>
 </div>
+  

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-admin-apv-invoice',
@@ -8,25 +9,22 @@ import { Router } from '@angular/router';
 })
 export class AdminApvInvoiceComponent implements OnInit {
 
-  invoices=[
-   {
-    invoiceId:"",
-    patnerName:"",
-    invoiceDate:"",
-    stat:"",
+  invoices:any=[]
 
-   }
-]
-
-  constructor(private router:Router) { }
+  constructor(private router:Router, private adminService: AdminService) { }
 
   ngOnInit(): void {
-    localStorage.removeItem("invoID");
+    localStorage.removeItem("invo-id");
+    this.adminService.getInvodata()
+    .subscribe((data)=>{
+      this.invoices = data;
+    })
   }
 
   detailedView(data: any){
-    localStorage.setItem("invoID",data);
-    this.router.navigate(['/admin/invoice/',data]);
+    localStorage.setItem('invo-id', data._id);
+    localStorage.setItem('invo-file', data.fileName);
+    this.router.navigate(['/admin/invoice/',data.fileName]);
   }
 
 }

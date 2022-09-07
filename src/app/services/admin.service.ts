@@ -38,4 +38,13 @@ export class AdminService {
     console.log(data)
     return this.http.post(`${this.logurl}/users/apv`,{"id":data})
   }
+  getInvodata(){
+    return this.http.get(`${this.logurl}/invoice`)
+  }
+  invoApv(data: any){
+    return this.http.put(`${this.logurl}/invoice/apv`,{"id":data})
+  }
+  invoDeny(data: any){
+    return this.http.put(`${this.logurl}/invoice/deny`,{"id":data})
+  }
 }
