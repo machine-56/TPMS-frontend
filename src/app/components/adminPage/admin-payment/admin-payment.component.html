@@ -1,1 +1,31 @@
-<p>admin-payment works!</p>
+<div class="container-fluid">
+    <!-- payment list -->
+    <div class="container mt-4">
+      <div id="heading">
+        <h3><b>Payment Info</b></h3>
+      </div>
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Work Order No</th>
+              <th scope="col">Invoice No</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let payment of payments"
+              [class.green]="payment.paystatus == 'paid'"
+              [class.red]="payment.paystatus == 'overdue'"
+            >
+              <td data-label="Work Order No">{{ payment.woid }}</td>
+              <td data-label="Invoice No">{{ payment.invono }}</td>
+              <td data-label="Status">{{ payment.paystatus }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+  

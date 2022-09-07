@@ -47,4 +47,7 @@ export class AdminService {
   invoDeny(data: any){
     return this.http.put(`${this.logurl}/invoice/deny`,{"id":data})
   }
+  getPayment(){
+    return this.http.get(`${this.logurl}/payment`)
+  }
 }

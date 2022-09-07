@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-admin-payment',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPaymentComponent implements OnInit {
 
-  constructor() { }
+  payments: any = [];
+
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
+    this.adminService.getPayment().subscribe((data: any) => {
+      this.payments = data;
+    });
   }
 
 }
