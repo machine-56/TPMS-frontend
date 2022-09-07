@@ -21,6 +21,9 @@ export class AdminService {
   getWorkorder(data: any){
     return this.http.get(`${this.logurl}/edit/`+data)
   }
+  editWorkorder(data: any){
+    return this.http.put(`${this.logurl}/workorders/edit`,data)
+  }
   deleteWorkorder(id:any){
     return this.http.delete(`${this.logurl}`+`/workorders/remove/`+id);
   }
