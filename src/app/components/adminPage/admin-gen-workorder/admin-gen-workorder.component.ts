@@ -18,21 +18,21 @@ export class AdminGenWorkorderComponent implements OnInit {
   selectedTaxType:string='';
   currentDateTime:Date =new Date();
   
-  workOrder={
-    pname:'',
-    pid:'',
-    tpname:'',
-    ttopics:'',
-    tdate_start:'',
-    tdate_end:'',
-    tmode:'',
-    GSTno:'',
-    tax:'' ,
-    panno:'',
-    amount:'',
-    payterms:'',
-    issue_date:this.currentDateTime
-  }; 
+  // workOrder={
+  //   pname:'',
+  //   pid:'',
+  //   tpname:'',
+  //   ttopics:'',
+  //   tdate_start:'',
+  //   tdate_end:'',
+  //   tmode:'',
+  //   GSTno:'',
+  //   tax:'' ,
+  //   panno:'',
+  //   amount:'',
+  //   payterms:'',
+  //   issue_date:this.currentDateTime
+  // }; 
  
   constructor(private fb:FormBuilder, private router:Router, private adminService:AdminService) { }
   workOrderForm=this.fb.group({

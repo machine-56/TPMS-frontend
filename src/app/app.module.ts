@@ -29,8 +29,6 @@ import { AdminPaymentComponent } from './components/adminPage/admin-payment/admi
 import { FinanceDashboardComponent } from './components/financePage/finance-dashboard/finance-dashboard.component';
 import { FinancePaymentComponent } from './components/financePage/finance-payment/finance-payment.component';
 import { FinanceEachPaymentComponent } from './components/financePage/finance-each-payment/finance-each-payment.component';
-import { FinanceInvoiceComponent } from './components/financePage/finance-invoice/finance-invoice.component';
-import { FinanceEachInvoceComponent } from './components/financePage/finance-each-invoce/finance-each-invoce.component';
 import { FinanceApvWorkorderComponent } from './components/financePage/finance-apv-workorder/finance-apv-workorder.component';
 import { FinanceEachWorkorderComponent } from './components/financePage/finance-each-workorder/finance-each-workorder.component';
 import { PartnerDashboardComponent } from './components/partnerPage/partner-dashboard/partner-dashboard.component';
@@ -47,6 +45,7 @@ import { FinanceService } from './services/finance.service';
 import { PartnerService } from './services/partner.service';
 import { LoginService } from './services/login.service';
 import { SignupService } from './services/signup.service';
+import { AdminEditWorkorderComponent } from './components/adminPage/admin-edit-workorder/admin-edit-workorder.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,8 +64,6 @@ import { SignupService } from './services/signup.service';
     FinanceDashboardComponent,
     FinancePaymentComponent,
     FinanceEachPaymentComponent,
-    FinanceInvoiceComponent,
-    FinanceEachInvoceComponent,
     FinanceApvWorkorderComponent,
     FinanceEachWorkorderComponent,
     PartnerDashboardComponent,
@@ -76,6 +73,7 @@ import { SignupService } from './services/signup.service';
     PartnerEachWorkorderComponent,
     PartnerEditProfileComponent,
     AdminApvPartnerComponent,
+    AdminEditWorkorderComponent,
   ],
   imports: [
     BrowserModule,

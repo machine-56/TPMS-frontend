@@ -18,6 +18,9 @@ export class AdminService {
   getWorkorderById(woId:any){
     return this.http.get(`${this.logurl}`+`/workorders/`+woId);
   }
+  getWorkorder(data: any){
+    return this.http.get(`${this.logurl}/edit/`+data)
+  }
   deleteWorkorder(id:any){
     return this.http.delete(`${this.logurl}`+`/workorders/remove/`+id);
   }

@@ -5,15 +5,14 @@ import { AdminApvPartnerComponent } from './components/adminPage/admin-apv-partn
 import { AdminDashboardComponent } from './components/adminPage/admin-dashboard/admin-dashboard.component';
 import { AdminEachInvoiceComponent } from './components/adminPage/admin-each-invoice/admin-each-invoice.component';
 import { AdminEachWorkorderComponent } from './components/adminPage/admin-each-workorder/admin-each-workorder.component';
+import { AdminEditWorkorderComponent } from './components/adminPage/admin-edit-workorder/admin-edit-workorder.component';
 import { AdminGenWorkorderComponent } from './components/adminPage/admin-gen-workorder/admin-gen-workorder.component';
 import { AdminPaymentComponent } from './components/adminPage/admin-payment/admin-payment.component';
 import { AdminWorkorderComponent } from './components/adminPage/admin-workorder/admin-workorder.component';
 import { FinanceApvWorkorderComponent } from './components/financePage/finance-apv-workorder/finance-apv-workorder.component';
 import { FinanceDashboardComponent } from './components/financePage/finance-dashboard/finance-dashboard.component';
-import { FinanceEachInvoceComponent } from './components/financePage/finance-each-invoce/finance-each-invoce.component';
 import { FinanceEachPaymentComponent } from './components/financePage/finance-each-payment/finance-each-payment.component';
 import { FinanceEachWorkorderComponent } from './components/financePage/finance-each-workorder/finance-each-workorder.component';
-import { FinanceInvoiceComponent } from './components/financePage/finance-invoice/finance-invoice.component';
 import { FinancePaymentComponent } from './components/financePage/finance-payment/finance-payment.component';
 import { HomeComponent } from './components/mainPage/home/home.component';
 import { LoginComponent } from './components/mainPage/login/login.component';
@@ -26,7 +25,8 @@ import { PartnerProfileComponent } from './components/partnerPage/partner-profil
 import { PartnerWorkorderComponent } from './components/partnerPage/partner-workorder/partner-workorder.component';
 import { AuthGuard } from './guard/auth.guard';
 
-const routes: Routes = [{path:'',redirectTo:'/',pathMatch:'full'},
+const routes: Routes = [
+  {path:'',redirectTo:'/',pathMatch:'full'},
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
@@ -34,6 +34,7 @@ const routes: Routes = [{path:'',redirectTo:'/',pathMatch:'full'},
   { path: 'admin/generate/workorder', component: AdminGenWorkorderComponent,canActivate:[AuthGuard] },
   { path: 'admin/workorder', component: AdminWorkorderComponent,canActivate:[AuthGuard] },
   { path: 'admin/workorder/:id', component: AdminEachWorkorderComponent,canActivate:[AuthGuard] },
+  { path: 'admin/edit', component:AdminEditWorkorderComponent,canActivate:[AuthGuard]},
   { path: 'admin/invoice', component: AdminApvInvoiceComponent,canActivate:[AuthGuard] },
   { path: 'admin/invoice/:id', component: AdminEachInvoiceComponent,canActivate:[AuthGuard] },
   { path: 'admin/payment', component: AdminPaymentComponent,canActivate:[AuthGuard] },
@@ -43,8 +44,6 @@ const routes: Routes = [{path:'',redirectTo:'/',pathMatch:'full'},
   { path: 'finance/payment/:id', component: FinanceEachPaymentComponent,canActivate:[AuthGuard] },
   { path: 'finance/workorder', component: FinanceApvWorkorderComponent ,canActivate:[AuthGuard]},
   { path: 'finance/workorder/:id', component: FinanceEachWorkorderComponent,canActivate:[AuthGuard] },
-  { path: 'finance/invoice', component: FinanceInvoiceComponent,canActivate:[AuthGuard] },
-  { path: 'finance/invoice/:id', component: FinanceEachInvoceComponent,canActivate:[AuthGuard] },
   { path: 'partner/dashboard', component: PartnerDashboardComponent ,canActivate:[AuthGuard]},
   { path: 'partner/profile', component: PartnerProfileComponent,canActivate:[AuthGuard] },
   { path: 'partner/workorder', component: PartnerWorkorderComponent,canActivate:[AuthGuard] },
