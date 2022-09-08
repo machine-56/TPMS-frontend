@@ -9,6 +9,7 @@ import { PartnerService } from 'src/app/services/partner.service';
 })
 export class PartnerInvoiceComponent implements OnInit {
   invoice: any = {};
+  user:any;
 
   displayMultipleInvoices!: Boolean;
   @ViewChild('multipleInput', { static: false }) multipleInput!: ElementRef;
@@ -18,7 +19,9 @@ export class PartnerInvoiceComponent implements OnInit {
     this.displayMultipleInvoices = false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user=localStorage.getItem('user');
+  }
 
   selectMultipleInvoice(event: any) {
     if (event.target.files.length > 0) {

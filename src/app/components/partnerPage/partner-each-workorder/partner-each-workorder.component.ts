@@ -12,9 +12,11 @@ export class PartnerEachWorkorderComponent implements OnInit {
   woid=localStorage.getItem("woid");
   public id: any; logo='/assets/images/logo.png';
   public workorders:any=[];
+  user:any;
   constructor(private partnerService:PartnerService, private pdfService: PdfService) { }
   
   ngOnInit(): void {
+    this.user=localStorage.getItem('user');
     this.partnerService.eachWorkorder(this.woid)
     .subscribe((data)=>{
       this.workorders = JSON.parse(JSON.stringify(data));

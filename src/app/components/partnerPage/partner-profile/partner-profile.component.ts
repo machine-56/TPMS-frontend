@@ -13,6 +13,7 @@ export class PartnerProfileComponent implements OnInit {
   // editpage: boolean = true;
   // hidepage: boolean = false;
   passw: boolean = true;
+  user:any;
 
   profile = {
     image: '',
@@ -31,8 +32,8 @@ export class PartnerProfileComponent implements OnInit {
   // uid = '630cd9f83c17e58710676441';
 
   ngOnInit(): void {
-    let uid = localStorage.getItem("user");
-    this.partnerService.getProfile(uid).subscribe((data: any) => {
+    this.user = localStorage.getItem("user");
+    this.partnerService.getProfile(this.user).subscribe((data: any) => {
       this.profile = JSON.parse(JSON.stringify(data));
     });
   }

@@ -1,11 +1,9 @@
-.margin{
-    margin-top: 1%;
-  }
+
   .card{
-    margin-top: 3%;
-    margin-right: 2%;
     height: max-content;
     cursor: pointer;
+    border: 1px solid #add8e6;
+    background-color: #add8e675;
   }
   .bg-apv{
     background-color: #1c96aa;

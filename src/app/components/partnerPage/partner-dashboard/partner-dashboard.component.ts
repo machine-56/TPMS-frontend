@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartnerDashboardComponent implements OnInit {
 
+  user:any;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.user=localStorage.getItem('user');
   }
 
 }
