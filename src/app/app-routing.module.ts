@@ -26,7 +26,10 @@ import { PartnerInvoiceComponent } from './components/partnerPage/partner-invoic
 import { PartnerProfileComponent } from './components/partnerPage/partner-profile/partner-profile.component';
 import { PartnerSidenavComponent } from './components/partnerPage/partner-sidenav/partner-sidenav.component';
 import { PartnerWorkorderComponent } from './components/partnerPage/partner-workorder/partner-workorder.component';
+import { AdminGuard } from './guard/admin.guard';
 import { AuthGuard } from './guard/auth.guard';
+import { FinanceGuard } from './guard/finance.guard';
+import { PartnerGuard } from './guard/partner.guard';
 
 const routes: Routes = [
   {path:'',redirectTo:'/',pathMatch:'full'},
@@ -35,32 +38,32 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
   {path: 'admin', component:AdminSidenavComponent,
   children:[
-  { path: 'dashboard', component: AdminDashboardComponent,canActivate:[AuthGuard] },
-  { path: 'generate/workorder', component: AdminGenWorkorderComponent,canActivate:[AuthGuard] },
-  { path: 'workorder', component: AdminWorkorderComponent,canActivate:[AuthGuard] },
-  { path: 'workorder/:id', component: AdminEachWorkorderComponent,canActivate:[AuthGuard] },
-  { path: 'edit', component:AdminEditWorkorderComponent,canActivate:[AuthGuard]},
-  { path: 'invoice', component: AdminApvInvoiceComponent,canActivate:[AuthGuard] },
-  { path: 'invoice/:id', component: AdminEachInvoiceComponent,canActivate:[AuthGuard] },
-  { path: 'payment', component: AdminPaymentComponent,canActivate:[AuthGuard] },
+  { path: 'dashboard', component: AdminDashboardComponent,canActivate:[AdminGuard] },
+  { path: 'generate/workorder', component: AdminGenWorkorderComponent,canActivate:[AdminGuard] },
+  { path: 'workorder', component: AdminWorkorderComponent,canActivate:[AdminGuard] },
+  { path: 'workorder/:id', component: AdminEachWorkorderComponent,canActivate:[AdminGuard] },
+  { path: 'edit', component:AdminEditWorkorderComponent,canActivate:[AdminGuard]},
+  { path: 'invoice', component: AdminApvInvoiceComponent,canActivate:[AdminGuard] },
+  { path: 'invoice/:id', component: AdminEachInvoiceComponent,canActivate:[AdminGuard] },
+  { path: 'payment', component: AdminPaymentComponent,canActivate:[AdminGuard] },
   ]},
   { path: 'superadmin/approve', component: AdminApvPartnerComponent,canActivate:[AuthGuard] },
   { path: 'finance', component:FinanceSidenavComponent,
   children:[
-  { path: 'dashboard', component: FinanceDashboardComponent,canActivate:[AuthGuard] },
-  { path: 'payment', component: FinancePaymentComponent,canActivate:[AuthGuard] },
-  { path: 'payment/:id', component: FinanceEachPaymentComponent,canActivate:[AuthGuard] },
-  { path: 'workorder', component: FinanceApvWorkorderComponent ,canActivate:[AuthGuard]},
-  { path: 'workorder/:id', component: FinanceEachWorkorderComponent,canActivate:[AuthGuard] },
+  { path: 'dashboard', component: FinanceDashboardComponent,canActivate:[FinanceGuard] },
+  { path: 'payment', component: FinancePaymentComponent,canActivate:[FinanceGuard] },
+  { path: 'payment/:id', component: FinanceEachPaymentComponent,canActivate:[FinanceGuard] },
+  { path: 'workorder', component: FinanceApvWorkorderComponent ,canActivate:[FinanceGuard]},
+  { path: 'workorder/:id', component: FinanceEachWorkorderComponent,canActivate:[FinanceGuard] },
   ]},
   {path: 'partner', component:PartnerSidenavComponent,
   children:[
-  { path: 'dashboard', component: PartnerDashboardComponent ,canActivate:[AuthGuard]},
-  { path: 'profile', component: PartnerProfileComponent,canActivate:[AuthGuard] },
-  { path: 'workorder', component: PartnerWorkorderComponent,canActivate:[AuthGuard] },
-  { path: 'workorder/:id', component: PartnerEachWorkorderComponent ,canActivate:[AuthGuard]},
-  { path: 'invoice', component: PartnerInvoiceComponent,canActivate:[AuthGuard] },
-  { path: 'profile/edit', component: PartnerEditProfileComponent,canActivate:[AuthGuard] },
+  { path: 'dashboard', component: PartnerDashboardComponent ,canActivate:[PartnerGuard]},
+  { path: 'profile', component: PartnerProfileComponent,canActivate:[PartnerGuard] },
+  { path: 'workorder', component: PartnerWorkorderComponent,canActivate:[PartnerGuard] },
+  { path: 'workorder/:id', component: PartnerEachWorkorderComponent ,canActivate:[PartnerGuard]},
+  { path: 'invoice', component: PartnerInvoiceComponent,canActivate:[PartnerGuard] },
+  { path: 'profile/edit', component: PartnerEditProfileComponent,canActivate:[PartnerGuard] },
   ]},
 ];
 
