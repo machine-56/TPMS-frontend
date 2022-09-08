@@ -46,6 +46,9 @@ import { PartnerService } from './services/partner.service';
 import { LoginService } from './services/login.service';
 import { SignupService } from './services/signup.service';
 import { AdminEditWorkorderComponent } from './components/adminPage/admin-edit-workorder/admin-edit-workorder.component';
+import { AdminSidenavComponent } from './components/adminPage/admin-sidenav/admin-sidenav.component';
+import { FinanceSidenavComponent } from './components/financePage/finance-sidenav/finance-sidenav.component';
+import { PartnerSidenavComponent } from './components/partnerPage/partner-sidenav/partner-sidenav.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +77,9 @@ import { AdminEditWorkorderComponent } from './components/adminPage/admin-edit-w
     PartnerEditProfileComponent,
     AdminApvPartnerComponent,
     AdminEditWorkorderComponent,
+    AdminSidenavComponent,
+    FinanceSidenavComponent,
+    PartnerSidenavComponent,
   ],
   imports: [
     BrowserModule,
