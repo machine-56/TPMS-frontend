@@ -14,9 +14,11 @@ export class AdminEachInvoiceComponent implements OnInit {
   data: any;
   link: any;
   uid:any;
+  role:any;
   constructor(private sanitizer: DomSanitizer, private adminService: AdminService, private router:Router) {}
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role');
     this.uid = localStorage.getItem('invo-id');
     this.data = localStorage.getItem('invo-file');
     this.link = `http://localhost:4156/api/admin/invoice/${this.data}`;

@@ -10,10 +10,12 @@ import { AdminService } from 'src/app/services/admin.service';
 export class AdminApvInvoiceComponent implements OnInit {
 
   invoices:any=[]
+  role:any;
 
   constructor(private router:Router, private adminService: AdminService) { }
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role');
     localStorage.removeItem("invo-id");
     this.adminService.getInvodata()
     .subscribe((data)=>{

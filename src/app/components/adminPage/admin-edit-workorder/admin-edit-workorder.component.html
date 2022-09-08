@@ -1,25 +1,35 @@
-<div class="container-fluid">
-    <div class="row">
-      <div class="bg-white border-bottom mb-4 pt-4 pb-2">
-        <div class="container">
-          <div class="row">
-            <h1 class="fs-5 text-dark">
-              <span class="fw-lighter"
-                ><i class="fa-solid fa-file-pdf"></i>
-              </span>
-              Workorder Generation
-            </h1>
-          </div>
-        </div>
-      </div>
+<nav class="navbar navbar-expand-lg bg-navbgm">
+  <div class="container-fluid">
+    <button
+    class="navbar-toggler"
+    type="button"
+    data-mdb-toggle="collapse"
+    data-mdb-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <i class="fas fa-bars"></i>
+  </button>
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link">
+            <i class="fa-solid fa-user pt-1 pr-1"></i>
+              {{role}}
+          </a>
+      </li>
+        
+      </ul>
     </div>
   </div>
+</nav>
   <div class="container">
-    <div class="row my-5">
+    <div class="row mt-5 mb-2">
       <div class="col-md-12">
-        <div class="card">
-          <div class="card-header bg-light">
-            <h1>New Work Order</h1>
+        <div class="card mb-4">
+          <div class="card-header text-white mx-2" style="margin-top: -15px;" id="bg-navback">
+            <h1 class="mb-0">Edit Work Order</h1>
           </div>
           <div class="card-body">
             <form (ngSubmit)="update()">
@@ -184,7 +194,9 @@
                   <button
                     type="submit"
                     value="Submit"
-                    class="btn btn-primary">
+                    class="btn text-white"
+                    id="btn-clr"
+                    >
                     Update
                   </button>
                   <button class="btn btn-light">

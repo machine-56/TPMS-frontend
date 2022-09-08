@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
+  role:any;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role');
   }
 
 }

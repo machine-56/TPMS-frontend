@@ -1,13 +1,8 @@
-a{
-    text-decoration: none;
-    color: black;
-}
-
 /* to make the table responsive */
 
 .table-container{
     padding: 0 10%;
-    margin: 40pz auto 0;
+    margin: 40px auto 0;
   }
   
   .table{
@@ -23,7 +18,7 @@ a{
     opacity: 1;
     padding: 12px;
     vertical-align: top;
-    text-align: center;
+    text-align: left;
   }
   
   table tbody tr td{
@@ -31,7 +26,7 @@ a{
     letter-spacing: 0.35;
     font-weight: normal;
     padding: 8px;
-    text-align: center;
+    text-align: left;
   }
   @media (max-width: 768px) {
     .table thead{

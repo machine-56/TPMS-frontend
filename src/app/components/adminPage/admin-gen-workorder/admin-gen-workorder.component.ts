@@ -17,6 +17,7 @@ export class AdminGenWorkorderComponent implements OnInit {
   trainingMode: any = ['Virtual', 'Physical', 'Hybrid'];
   selectedTaxType:string='';
   currentDateTime:Date =new Date();
+  role:any;
   
   // workOrder={
   //   pname:'',
@@ -53,6 +54,7 @@ export class AdminGenWorkorderComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role');
   }
 
   get workOrderFormControl() {

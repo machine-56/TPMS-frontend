@@ -10,9 +10,11 @@ import { PdfService } from 'src/app/services/pdf.service';
 export class AdminEachWorkorderComponent implements OnInit {
   public id: any;logo='/assets/images/logo.png';
   public workorders:any=[];
+  role:any;
   constructor(private router:Router,private route:ActivatedRoute,private adminService:AdminService, private pdfService: PdfService) { }
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role');
     this.id = this. route. snapshot. paramMap. get('id');
    
     this.adminService.getWorkorderById(this.id).subscribe((workorder:any) => {

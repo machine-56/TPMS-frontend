@@ -20,10 +20,14 @@ export class FinanceApvWorkorderComponent implements OnInit {
       wo_status:'',
     },
   ];
+  role:any;
+  invono:any;
 
   constructor(private router: Router, private financeService: FinanceService) {}
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role');
+    this.invono=localStorage.getItem('invono')
     localStorage.removeItem('woid');
     this.financeService.getWorkOrder().subscribe((data)=>{
       this.workorder = JSON.parse(JSON.stringify(data));

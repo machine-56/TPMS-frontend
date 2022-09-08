@@ -12,10 +12,12 @@ export class FinanceEachWorkorderComponent implements OnInit {
   public id: any;logo='/assets/images/logo.png';
   workorders:any=[];
   woid=localStorage.getItem("woid");
+  role:any;
 
   constructor(private financeService: FinanceService, private router: Router) {}
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role');
     this.financeService.eachWorkOrder(this.woid)
     .subscribe((data)=>{
       this.workorders = JSON.parse(JSON.stringify(data));

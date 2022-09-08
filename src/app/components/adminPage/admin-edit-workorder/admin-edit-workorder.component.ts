@@ -12,6 +12,7 @@ export class AdminEditWorkorderComponent implements OnInit {
   trainingMode: any = ['Virtual', 'Physical', 'Hybrid'];
   selectedTaxType:string='';
   workorderid=localStorage.getItem('woid-edit');
+  role:any;
 
   // workorder={
   //   woid : '',
@@ -34,6 +35,7 @@ export class AdminEditWorkorderComponent implements OnInit {
   constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role');
     this.adminService.getWorkorder(this.workorderid)
     .subscribe((data)=>{
       this.workorder = JSON.parse(JSON.stringify(data));

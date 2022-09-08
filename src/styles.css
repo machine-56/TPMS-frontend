@@ -13,9 +13,13 @@
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
   }
-  footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
+  #bg-navback{
+    background-color: #263238;
+    background-image: linear-gradient(to right, #263238 , #add8e6);
   }
-
+  .bg-navbgm{
+      background-color: #add8e6;
+  }
+  #btn-clr{
+    background-color: #204a5f;
+  }

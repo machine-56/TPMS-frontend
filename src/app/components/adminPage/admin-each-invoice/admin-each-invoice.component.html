@@ -1,16 +1,41 @@
+<nav class="navbar navbar-expand-lg bg-navbgm">
+  <div class="container-fluid">
+    <button
+    class="navbar-toggler"
+    type="button"
+    data-mdb-toggle="collapse"
+    data-mdb-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <i class="fas fa-bars"></i>
+  </button>
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link">
+            <i class="fa-solid fa-user pt-1 pr-1"></i>
+              {{role}}
+          </a>
+      </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="container-fluid">
-  <!-- invoice  -->
+  <!-- buttons -->
+  <div class="row mt-2">
+    <div class=" col mb-4 navigation">
+      <button class="btn btn-light" (click)="fnApv()">Approve</button>
+      <button class="btn btn-light" (click)="fnDeny()">Deny</button>
+    </div>
+  </div>
   <div class="container ">
     <!-- invoice -->
-    <div class="row mt-5">
+    <div class="row">
       <iframe class="col-10 m-auto invo shadow py-3" [src]="safeUrl" frameborder="1"></iframe>
-    </div>
-    <!-- buttons -->
-    <div class="row my-2">
-      <div class=" col mb-4 navigation">
-        <button class="btn btn-light" (click)="fnApv()">Approve</button>
-        <button class="btn btn-light" (click)="fnDeny()">Deny</button>
-      </div>
     </div>
   </div>
 </div>
