@@ -37,6 +37,7 @@
             <tr>
               <th scope="col">Work Order ID</th>
               <th scope="col">Invoice No</th>
+              <th scope="col">Partner Name</th>
               <th scope="col">Status</th>
             </tr>
           </thead>
@@ -46,7 +47,15 @@
             >
               <td data-label="Order ID">{{ invoice.woid }}</td>
               <td data-label="Invoice No">{{ invoice.invono }}</td>
-              <td data-label="Status">{{ invoice.invoice_status }}</td>
+              <td data-label="Partner Name">{{ invoice.partner_name }}</td>
+              <td data-label="Status">
+                <span
+                [class.green]="invoice.invoice_status=='apvd'"
+                [class.red]="invoice.invoice_status=='denied'"
+                >
+                  {{ invoice.invoice_status }}
+                </span>
+              </td>
               <td>
                 <i
                   class="fa-solid fa-list-ul"

@@ -16,9 +16,14 @@ export class FinanceEachPaymentComponent implements OnInit {
   link: any;
   uid:any;
   role:any;
+  invo={
+    comment:'',
+    invoid:localStorage.getItem('invo-id')
+  }
   constructor(private sanitizer: DomSanitizer, private financeService: FinanceService, private router:Router) {}
-
+  
   ngOnInit(): void {
+    this.invo.invoid=localStorage.getItem('invo-id');
     this.role=localStorage.getItem('role');
     this.uid = localStorage.getItem('invo-id');
     this.data = localStorage.getItem('invo-file');
@@ -32,5 +37,12 @@ export class FinanceEachPaymentComponent implements OnInit {
       alert('Invoice paid');
       this.router.navigate(['finance/payment'])
     });
+  }
+
+  subComment(){
+    this.financeService.invoComment(this.invo).subscribe(()=>{
+      alert('commented successfully');
+      this.router.navigate(['/finance/payment'])
+    })
   }
 }

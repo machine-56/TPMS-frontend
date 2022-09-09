@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FinanceService } from 'src/app/services/finance.service';
+
 
 @Component({
   selector: 'app-finance-payment',
@@ -9,11 +10,10 @@ import { FinanceService } from 'src/app/services/finance.service';
 })
 export class FinancePaymentComponent implements OnInit {
   payments: any = [];
-  currentDateTime:Date =new Date();
   role:any;
-
+  
   constructor(private router: Router, private financeService: FinanceService) {}
-
+  
   ngOnInit(): void {
     this.role=localStorage.getItem('role');
     localStorage.removeItem('invo-id');
@@ -30,4 +30,5 @@ export class FinancePaymentComponent implements OnInit {
     localStorage.setItem('invo-file', data.fileName.toString() );
     this.router.navigate(['/finance/payment/'+data.fileName]);
   }
+
 }

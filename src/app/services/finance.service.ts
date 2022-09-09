@@ -34,5 +34,11 @@ export class FinanceService {
   payFn(data: any){
     return this.http.put(`${this.logurl}/payment/pay`,{"id":data})
   }
+  setOverdue(data: any){
+    return this.http.put(`${this.logurl}/invoice/overdue`,{"id":data})
+  }
+  invoComment(data:any){
+    return this.http.put(`${this.logurl}/invoice/comment`,data)
+  }
 
 }

@@ -1,3 +1,16 @@
+.red{
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background-color: red;
+}
+.green{
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background-color: green;
+}
+
 /* to make the table responsive */
 
 .table-container{

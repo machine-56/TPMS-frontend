@@ -34,7 +34,7 @@
   <div class=" row mb-4 mt-2">
     <!-- invoice -->
     <div class="col-8">
-      <iframe class="col-10 m-auto invo shadow py-3" [src]="safeUrl" frameborder="1"></iframe>
+      <iframe class="col-11 m-auto invo shadow py-3" [src]="safeUrl" frameborder="1"></iframe>
     </div>
     <!-- buttons -->
     <div class="col-4 mt-5">
@@ -52,20 +52,24 @@
       </div>
       <div class="comment">
         <div class="collapse" id="collapseExample">
-          <div class="card card-body" style="background-color: #add8e615;">
-            <div class="form-floating">
-              <textarea
-                class="form-control"
-                placeholder="Leave a comment here"
-                id="floatingTextarea2"
-                style="height: 100px"
-              ></textarea>
-              <label for="floatingTextarea2">Comments</label>
+          <form #commentForm="ngForm" (ngSubmit)="subComment()">
+            <div class="card card-body" style="background-color: #add8e615;">
+              <div class="form-floating">
+                <textarea
+                  name="comment"
+                  [(ngModel)]="invo.comment"
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="comment"
+                  style="height: 100px"
+                ></textarea>
+                <label for="floatingTextarea2">Comments</label>
+              </div>
+              <div class="navigation">
+                <button class="btn btn-light">Submit</button>
+              </div>
             </div>
-            <div class="navigation">
-              <button class="btn btn-light">Submit</button>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

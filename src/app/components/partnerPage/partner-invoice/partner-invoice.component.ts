@@ -45,6 +45,7 @@ export class PartnerInvoiceComponent implements OnInit {
 
   invoiceFormUpload(invoiceFileName: any) {
     this.invoice.fileName = invoiceFileName;
+    this.invoice.partner_name = this.user;
     this.invoice.invoice_status = 'pending';
     this.invoice.paystatus = 'pending';
     console.log(this.invoice);

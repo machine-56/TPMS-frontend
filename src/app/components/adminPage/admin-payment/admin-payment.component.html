@@ -37,18 +37,26 @@
               <tr>
                 <th scope="col">Work Order No</th>
                 <th scope="col">Invoice No</th>
+                <th scope="col">Partner Name</th>
                 <th scope="col">Status</th>
               </tr>
             </thead>
             <tbody>
               <tr
                 *ngFor="let payment of payments"
-                [class.green]="payment.paystatus == 'paid'"
-                [class.red]="payment.paystatus == 'overdue'"
               >
                 <td data-label="Work Order No">{{ payment.woid }}</td>
                 <td data-label="Invoice No">{{ payment.invono }}</td>
-                <td data-label="Status">{{ payment.paystatus }}</td>
+                <td data-label="Partner Name">{{ payment.partner_name }}</td>
+                <td data-label="Status">
+                  <span
+                    [class.green]="payment.paystatus == 'paid'"
+                    [class.red]="payment.paystatus == 'overdue'"
+                    [class.black]="payment.paystatus == 'pending'"
+                    >
+                    {{ payment.paystatus }}
+                   </span>
+                </td>
               </tr>
             </tbody>
           </table>
