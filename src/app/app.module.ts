@@ -7,10 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { MatToolbarModule } from '@angular/material/toolbar';
-// import { MatSidenavModule } from '@angular/material/sidenav';
-// import { MatButtonModule } from '@angular/material/button';
-// import { MatIconModule } from '@angular/material/icon';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -94,16 +92,17 @@ import { PartnerSidenavComponent } from './components/partnerPage/partner-sidena
     MatRippleModule,
     MatDividerModule,
     HttpClientModule,
-    // MatToolbarModule,
-    // MatSidenavModule,
-    // MatButtonModule,
-    // MatIconModule,
   ],
   providers: [AdminService,FinanceService,PartnerService,LoginService,SignupService,{
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptorService,
     multi:true
-  }],
+  },
+  {
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy,
+  },
+],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
