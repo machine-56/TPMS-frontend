@@ -14,7 +14,10 @@
   <div class="forms">
     <div class="form-content">
       <div class="login-form">
-        <div class="title">Login</div>
+        <div class="d-flex align-items-center mb-3 pb-1">
+          <img src="/assets/images/logo.svg" width="300px">
+         </div>
+        <!-- <div class="title">Login</div> -->
         <form #loginform="ngForm" (ngSubmit)="onLogin()">
           <div class="input-boxes">
             <div class="form-group">
@@ -87,7 +90,8 @@
             <div class="d-flex justify-content-center align-content-center">
               <button
                 type="submit"
-                class="btn btn-lg btn-block btn-primary m-3"
+                class="btn btn-lg btn-block m-3 text-white"
+                style="background-color: #204a5f;"
                 value="Login"
                 id="login"
                 name="login"
@@ -101,7 +105,7 @@
               <a
                 class="fw-bold"
                 routerLink="/signup"
-                style="color: rgb(64, 123, 255)"
+                style="color: #204a5f"
                 for="Signup"
                 >Signup now</a
               >

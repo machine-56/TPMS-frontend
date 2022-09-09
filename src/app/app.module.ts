@@ -7,7 +7,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -47,6 +46,7 @@ import { AdminEditWorkorderComponent } from './components/adminPage/admin-edit-w
 import { AdminSidenavComponent } from './components/adminPage/admin-sidenav/admin-sidenav.component';
 import { FinanceSidenavComponent } from './components/financePage/finance-sidenav/finance-sidenav.component';
 import { PartnerSidenavComponent } from './components/partnerPage/partner-sidenav/partner-sidenav.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,11 +97,7 @@ import { PartnerSidenavComponent } from './components/partnerPage/partner-sidena
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptorService,
     multi:true
-  },
-  {
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy,
-  },
+  }
 ],
   bootstrap: [AppComponent],
 })

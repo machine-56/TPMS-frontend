@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { serverURL } from 'src/app/server';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class AdminEachInvoiceComponent implements OnInit {
     this.role=localStorage.getItem('role');
     this.uid = localStorage.getItem('invo-id');
     this.data = localStorage.getItem('invo-file');
-    this.link = `http://localhost:4156/api/admin/invoice/${this.data}`;
+    this.link = `${serverURL}/admin/invoice/${this.data}`;
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.link);
   }
 
