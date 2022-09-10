@@ -50,11 +50,11 @@
             <td data-label="Partner Name">{{ payment.partner_name }}</td>
             <td data-label="Status">
               <span
-              [class.green]="payment.paystatus == 'paid'"
-              [class.red]="payment.paystatus == 'overdue'"
-              [class.black]="payment.paystatus == 'pending'"
+              [class.green]="payment.paystatus == 'Paid'"
+              [class.red]="payment.paystatus == 'Overdue'"
+              [class.black]="payment.paystatus == 'Pending'"
               >
-              {{ payment.paystatus }}
+              <b>{{ payment.paystatus }}</b>
             </span>
           </td>
             <td>

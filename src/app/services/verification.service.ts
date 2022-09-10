@@ -9,15 +9,8 @@ export class VerificationService {
 
   constructor() { }
 
-  checkroleSAdm(){
-    if(this.user==='Superadmin'){
-      return true;
-    }else{
-      return false;
-    }
-  }
   checkroleAdm(){
-    if(this.user==='Admin'){
+    if(this.user==='Admin'|| this.user==='superadmin'){
       return true;
     }else{
       return false;

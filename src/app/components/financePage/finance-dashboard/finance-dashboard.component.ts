@@ -15,6 +15,7 @@ export class FinanceDashboardComponent implements OnInit {
   invodate:any;
   testdate:any;
   payments:any=[];
+  selected: any;
 
   constructor(@Inject(LOCALE_ID) private locale: string, private financeService: FinanceService) { }
 
@@ -27,7 +28,7 @@ export class FinanceDashboardComponent implements OnInit {
       for(let i=0;i<this.payments.length;i++ ){
         this.invodate=formatDate(this.payments[i].duedate,'dd-MM-yyyy',this.locale)
         this.testdate=formatDate(this.currentDateTime,'dd-MM-yyyy',this.locale)
-        if((this.testdate>this.invodate) && (this.payments[i].paystatus!='paid')){
+        if((this.testdate>this.invodate) && (this.payments[i].paystatus!='Paid')){
           // set over due
           this.financeService.setOverdue(this.payments[i]._id).subscribe(()=>{})
         }

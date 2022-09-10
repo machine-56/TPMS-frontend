@@ -28,7 +28,6 @@ export class AdminService {
     return this.http.delete(`${this.logurl}`+`/workorders/remove/`+id);
   }
   getUsers(){
-    console.log('reached');
     return this.http.get(`${this.logurl}`+`/users`);
   }
   deletefn(data: any){

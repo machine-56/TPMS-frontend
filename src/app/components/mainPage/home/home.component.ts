@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
       localStorage.setItem('token',res.token);
       localStorage.setItem('role',res.post);
       if (res.post === 'Admin') {this.router.navigate([`/admin/dashboard`]);}
-      else if(res.post === 'superadmin'){this.router.navigate([`superadmin/approve`]);}
+      else if(res.post === 'superadmin'){this.router.navigate([`/admin/dashboard`]);}
       else if(res.post=='Partner'){
         localStorage.setItem("user",res.username)
         this.router.navigate([`/partner/dashboard`]);

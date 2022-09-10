@@ -21,6 +21,7 @@ export class PartnerInvoiceComponent implements OnInit {
 
   ngOnInit(): void {
     this.user=localStorage.getItem('user');
+    this.invoice.woid=localStorage.getItem('invo-woid');
   }
 
   selectMultipleInvoice(event: any) {
@@ -46,15 +47,15 @@ export class PartnerInvoiceComponent implements OnInit {
   invoiceFormUpload(invoiceFileName: any) {
     this.invoice.fileName = invoiceFileName;
     this.invoice.partner_name = this.user;
-    this.invoice.invoice_status = 'pending';
-    this.invoice.paystatus = 'pending';
+    this.invoice.invoice_status = 'Pending';
+    this.invoice.paystatus = 'Pending'
     console.log(this.invoice);
     this.partnerService.invoiceFormUpload(this.invoice).subscribe({
       next: (succ: any) => {
         if (succ.success) {
           // message
           console.log('success invoice uploaded');
-          alert('success');
+          alert('Uploaded Successfully');
           this.router.navigate(['/partner/workorder'])
         }
       },

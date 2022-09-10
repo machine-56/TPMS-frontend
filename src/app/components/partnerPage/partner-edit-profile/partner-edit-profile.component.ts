@@ -44,7 +44,6 @@ export class PartnerEditProfileComponent implements OnInit {
     let answer = confirm('Are you sure you want to update profile');
     if (answer) {
       this.partnerService.updateProfile(this.profile).subscribe(()=>{})
-      // alert('success');
       this.router.navigate(['partner/profile']);
     }
   }

@@ -17,6 +17,15 @@
                 </span>
             </a>
         </li>
+        <li class="sidenav-nav-item" *ngIf="role==='superadmin'">
+            <a class="sidenav-nav-link" routerLink="/admin/user/approve" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">
+                <i class="sidenav-link-icon fal fa-user-check"></i>
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                    Approve User
+                </span>
+            </a>
+        </li>
         <li class="sidenav-nav-item">
             <a class="sidenav-nav-link" (click)="logout()" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">

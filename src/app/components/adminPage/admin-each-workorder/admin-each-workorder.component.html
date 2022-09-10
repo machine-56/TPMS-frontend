@@ -28,8 +28,8 @@
 <div class="container">
   <div class="row my-5 ">
   <div class="d-flex justify-content-end">
-    <button (click)="edit(workorders._id)" class="btn btn-light mr-2"><i class="fa-solid fa-file-pen"></i> Edit</button>
-    <button (click)="generatePDF()" class="btn btn-primary"><i class="fa fa-download"></i> Download</button>
+    <button (click)="edit(workorders._id)" class="btn btn-info mr-2"><i class="fa-solid fa-file-pen"></i> Edit</button>
+    <button (click)="generatePDF()" class="btn text-white" id="btn-clr"><i class="fa fa-download"></i> Download</button>
   </div>
 </div>
 </div>
@@ -116,8 +116,8 @@
                     <td>{{ workorders.amount }}</td>
                   </tr>
                   <tr>
-                    <td></td>
-                    <td></td>
+                    <td>Amount</td>
+                    <td>{{amountinwords|uppercase}}</td>
                     <td></td>
                     <td></td>
                     <td></td>

@@ -3,6 +3,7 @@ import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 import { formatDate } from '@angular/common';
+const numWords = require('num-words')
 
 @Injectable({
   providedIn: 'root'
@@ -71,7 +72,7 @@ export class PdfService {
               [{text: 'SlNo', style: 'tableHeader',alignment:'center'}, {text: 'Description', style: 'tableHeader',alignment:'center'}, {text: 'Qty\n(Nos)', style: 'tableHeader',alignment:'center'}, {text: 'Rate', style: 'tableHeader',alignment:'center'}, {text: 'Amount\nRs', style: 'tableHeader',alignment:'center'}],
               ['1', 'Training topics:'+workorders.traning_topics+'\nTraining topics:'+workorders.mode+'\n'+workorders.payterms, '','',workorders.amount],
               ['',{text:'Total',alignment:'right'},'','',''],
-              ['','','','','']
+              ['Amount:',numWords(workorders.amount),'','','']
             ]
           }
         },

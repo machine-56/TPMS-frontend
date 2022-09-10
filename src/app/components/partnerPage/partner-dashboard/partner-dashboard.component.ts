@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class PartnerDashboardComponent implements OnInit {
 
   user:any;
+selected: any;
+
 
   constructor() { }
 

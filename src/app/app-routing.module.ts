@@ -17,28 +17,26 @@ import { FinanceEachWorkorderComponent } from './components/financePage/finance-
 import { FinancePaymentComponent } from './components/financePage/finance-payment/finance-payment.component';
 import { FinanceSidenavComponent } from './components/financePage/finance-sidenav/finance-sidenav.component';
 import { HomeComponent } from './components/mainPage/home/home.component';
-import { LoginComponent } from './components/mainPage/login/login.component';
 import { SignUpComponent } from './components/mainPage/sign-up/sign-up.component';
 import { PartnerDashboardComponent } from './components/partnerPage/partner-dashboard/partner-dashboard.component';
 import { PartnerEachWorkorderComponent } from './components/partnerPage/partner-each-workorder/partner-each-workorder.component';
 import { PartnerEditProfileComponent } from './components/partnerPage/partner-edit-profile/partner-edit-profile.component';
+import { PartnerInvoiceStatusComponent } from './components/partnerPage/partner-invoice-status/partner-invoice-status.component';
 import { PartnerInvoiceComponent } from './components/partnerPage/partner-invoice/partner-invoice.component';
 import { PartnerProfileComponent } from './components/partnerPage/partner-profile/partner-profile.component';
 import { PartnerSidenavComponent } from './components/partnerPage/partner-sidenav/partner-sidenav.component';
 import { PartnerWorkorderComponent } from './components/partnerPage/partner-workorder/partner-workorder.component';
 import { AdminGuard } from './guard/admin.guard';
-import { AuthGuard } from './guard/auth.guard';
 import { FinanceGuard } from './guard/finance.guard';
 import { PartnerGuard } from './guard/partner.guard';
 
 const routes: Routes = [
   {path:'',redirectTo:'/',pathMatch:'full'},
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
   {path: 'admin', component:AdminSidenavComponent,
   children:[
-  { path: 'dashboard', component: AdminDashboardComponent,canActivate:[AdminGuard] },
+  { path: 'dashboard', component: AdminDashboardComponent,canActivate:[AdminGuard]},
   { path: 'generate/workorder', component: AdminGenWorkorderComponent,canActivate:[AdminGuard] },
   { path: 'workorder', component: AdminWorkorderComponent,canActivate:[AdminGuard] },
   { path: 'workorder/:id', component: AdminEachWorkorderComponent,canActivate:[AdminGuard] },
@@ -46,8 +44,8 @@ const routes: Routes = [
   { path: 'invoice', component: AdminApvInvoiceComponent,canActivate:[AdminGuard] },
   { path: 'invoice/:id', component: AdminEachInvoiceComponent,canActivate:[AdminGuard] },
   { path: 'payment', component: AdminPaymentComponent,canActivate:[AdminGuard] },
+  { path: 'user/approve', component: AdminApvPartnerComponent,canActivate:[AdminGuard] },
   ]},
-  { path: 'superadmin/approve', component: AdminApvPartnerComponent,canActivate:[AuthGuard] },
   { path: 'finance', component:FinanceSidenavComponent,
   children:[
   { path: 'dashboard', component: FinanceDashboardComponent,canActivate:[FinanceGuard] },
@@ -63,6 +61,7 @@ const routes: Routes = [
   { path: 'workorder', component: PartnerWorkorderComponent,canActivate:[PartnerGuard] },
   { path: 'workorder/:id', component: PartnerEachWorkorderComponent ,canActivate:[PartnerGuard]},
   { path: 'invoice', component: PartnerInvoiceComponent,canActivate:[PartnerGuard] },
+  { path: 'statusinvoice', component:PartnerInvoiceStatusComponent ,canActivate:[PartnerGuard] },
   { path: 'profile/edit', component: PartnerEditProfileComponent,canActivate:[PartnerGuard] },
   ]},
 ];

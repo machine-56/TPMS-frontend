@@ -24,44 +24,25 @@
     </div>
   </div>
 </nav>
-<div class="container mt-5">
-    <!-- payment list -->
-    <div class="row mt-4">
-      <div class="card col-11 m-auto">
-        <div class="card-header text-white d-flex align-content-center" style="margin-top: -13px;" id="bg-navback">
-          <h3 class="fs-4 mb-0">Payment Info</h3>
-        </div>
-        <div class="card-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Work Order No</th>
-                <th scope="col">Invoice No</th>
-                <th scope="col">Partner Name</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                *ngFor="let payment of payments"
-              >
-                <td data-label="Work Order No">{{ payment.woid }}</td>
-                <td data-label="Invoice No">{{ payment.invono }}</td>
-                <td data-label="Partner Name">{{ payment.partner_name }}</td>
-                <td data-label="Status">
-                  <span
-                    [class.green]="payment.paystatus == 'paid'"
-                    [class.red]="payment.paystatus == 'overdue'"
-                    [class.black]="payment.paystatus == 'pending'"
-                    >
-                    {{ payment.paystatus }}
-                   </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+
+<div class="container">
+  <div class="row mt-5">
+    <h2 class="text-white p-2 pl-4" style="border-radius: 5px;" id="bg-navback">Payment Status</h2>
+  </div>
 </div>
-  
+<div class="container">
+  <div class="row my-5">
+    <div class="col-12 col-md-4 mb-4" *ngFor="let payment of payments">
+        <div class="card">
+          <div class="card-body">
+            <p><b>Partner Name: </b>{{ payment.partner_name }}</p>
+            <p><b>Workorder ID: </b>{{ payment.woid }}</p>
+            <p><b>Invoice No: </b>{{ payment.invono }}</p>
+            <p><b>Payment Status: </b>{{ payment.paystatus }}</p>
+            <p><b>Due Date: </b>{{ payment.duedate | date: "mediumDate" }}</p>
+            <p *ngIf="payment.comment && (payment.paystatus=='Overdue')"><b>Comments: </b>{{ payment.comment }}</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

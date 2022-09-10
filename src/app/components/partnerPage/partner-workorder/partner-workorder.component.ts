@@ -15,8 +15,9 @@ export class PartnerWorkorderComponent implements OnInit {
   constructor(private router: Router, private partnerService: PartnerService) { }
 
   ngOnInit(): void {
-    this.user = localStorage.getItem("user");
+    localStorage.removeItem('invo-woid');
     localStorage.removeItem("woid");
+    this.user = localStorage.getItem("user");
     this.partnerService.getWorkOrder(this.user).subscribe((data)=>{
       this.workOrders = JSON.parse(JSON.stringify(data));
     })

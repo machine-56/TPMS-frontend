@@ -29,7 +29,7 @@
 <div class="row mt-2">
   <div class="navigation">
     <button (click)="generatePDF()" class="btn text-white" id="btn-clr"><i class="fa fa-download"></i> Download</button>
-    <button class="btn btn-info ml-2" routerLink="/partner/invoice">Submit Inovice</button>
+    <button class="btn btn-info ml-2" (click)="submitinvoice(workorders.woid)">Submit Inovice</button>
   </div>
 </div>
 </div>
@@ -117,8 +117,8 @@
                     <td>{{ workorders.amount }}</td>
                   </tr>
                   <tr>
-                    <td></td>
-                    <td></td>
+                    <td>Amount</td>
+                    <td>{{amountinwords|uppercase}}</td>
                     <td></td>
                     <td></td>
                     <td></td>

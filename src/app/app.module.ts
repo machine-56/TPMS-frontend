@@ -5,17 +5,14 @@ import { MatDatepickerModule } from '@angular/material/datepicker'; //date picke
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/mainPage/login/login.component';
 import { SignUpComponent } from './components/mainPage/sign-up/sign-up.component';
 import { HomeComponent } from './components/mainPage/home/home.component';
-import { HeaderComponent } from './components/common/header/header.component';
-import { FooterComponent } from './components/common/footer/footer.component';
 import { AdminDashboardComponent } from './components/adminPage/admin-dashboard/admin-dashboard.component';
 import { AdminGenWorkorderComponent } from './components/adminPage/admin-gen-workorder/admin-gen-workorder.component';
 import { AdminApvInvoiceComponent } from './components/adminPage/admin-apv-invoice/admin-apv-invoice.component';
@@ -46,15 +43,13 @@ import { AdminEditWorkorderComponent } from './components/adminPage/admin-edit-w
 import { AdminSidenavComponent } from './components/adminPage/admin-sidenav/admin-sidenav.component';
 import { FinanceSidenavComponent } from './components/financePage/finance-sidenav/finance-sidenav.component';
 import { PartnerSidenavComponent } from './components/partnerPage/partner-sidenav/partner-sidenav.component';
+import { PartnerInvoiceStatusComponent } from './components/partnerPage/partner-invoice-status/partner-invoice-status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     SignUpComponent,
     HomeComponent,
-    HeaderComponent,
-    FooterComponent,
     AdminDashboardComponent,
     AdminGenWorkorderComponent,
     AdminApvInvoiceComponent,
@@ -78,6 +73,7 @@ import { PartnerSidenavComponent } from './components/partnerPage/partner-sidena
     AdminSidenavComponent,
     FinanceSidenavComponent,
     PartnerSidenavComponent,
+    PartnerInvoiceStatusComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,7 +93,8 @@ import { PartnerSidenavComponent } from './components/partnerPage/partner-sidena
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptorService,
     multi:true
-  }
+  },
+  {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
 ],
   bootstrap: [AppComponent],
 })

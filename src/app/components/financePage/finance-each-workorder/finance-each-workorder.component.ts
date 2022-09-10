@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FinanceService } from 'src/app/services/finance.service';
+const numWords = require('num-words')
 
 @Component({
   selector: 'app-finance-each-workorder',
@@ -13,6 +14,7 @@ export class FinanceEachWorkorderComponent implements OnInit {
   workorders:any=[];
   woid=localStorage.getItem("woid");
   role:any;
+  amountinwords: any;
 
   constructor(private financeService: FinanceService, private router: Router) {}
 
@@ -21,6 +23,7 @@ export class FinanceEachWorkorderComponent implements OnInit {
     this.financeService.eachWorkOrder(this.woid)
     .subscribe((data)=>{
       this.workorders = JSON.parse(JSON.stringify(data));
+      this.amountinwords=numWords(this.workorders.amount);
     });
   }
 
@@ -31,11 +34,11 @@ export class FinanceEachWorkorderComponent implements OnInit {
   }
 
   fnDeny(data: any){
-    this.financeService.deleteFn(data)
-    .subscribe(()=>{
-      // alert('Workorder denied');
-    })
-    this.router.navigate(['/finance/workorder'])
+    let answer = confirm('Are you sure to DENY Workorder');
+    if (answer) {
+      this.financeService.deleteFn(data).subscribe(()=>{})
+      this.router.navigate(['/finance/workorder'])
+    }
   }
 
 }

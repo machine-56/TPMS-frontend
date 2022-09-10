@@ -3,7 +3,6 @@ export const navpartnerData = [
         routeLink: '/partner/dashboard',
         icon: 'fal fa-home',
         label: 'Dashboard',
-        role: 'admin'
     },
     {
         routeLink: '/partner/profile',
@@ -15,16 +14,11 @@ export const navpartnerData = [
         icon: 'fal fa-file-pdf',
         label: 'Workorder',
     },
-    // {
-    //     routeLink: '/admin/workorder',
-    //     icon: 'fal fa-clipboard-list',
-    //     label: 'Work Orders',
-    // },
-    // {
-    //     routeLink: '/admin/payment',
-    //     icon: 'fal fa-rupee-sign',
-    //     label: 'Payment Remittance',
-    // },
+    {
+        routeLink: '/partner/statusinvoice',
+        icon: 'fal fa-file-invoice',
+        label: 'Invoice Status',
+    },
     {
         routeLink: 'phone',
         icon: 'fal fa-phone-flip',
@@ -35,10 +29,4 @@ export const navpartnerData = [
         icon: 'fal fa-envelope',
         label: 'info@ictkerala.org',
     },
-    // {
-    //     routeLink: '/logout',
-    //     icon: 'fal fa-arrow-right-from-bracket',
-    //     label: 'Log Out',
-    // },
-
 ];

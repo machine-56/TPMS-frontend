@@ -25,6 +25,6 @@ export class SignUpComponent implements OnInit {
   onSignup() {
     console.log(this.signupData);
     this.signupService.signup(this.signupData);
-    this.router.navigate(['login']);
+    this.router.navigate(['/']);
   }
 }

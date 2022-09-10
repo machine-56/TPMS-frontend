@@ -42,7 +42,7 @@ export class FinanceEachPaymentComponent implements OnInit {
 
   subComment(){
     this.financeService.invoComment(this.invo).subscribe(()=>{
-      alert('commented successfully');
+      alert('Commented Successfully');
       this.router.navigate(['/finance/payment'])
     })
   }

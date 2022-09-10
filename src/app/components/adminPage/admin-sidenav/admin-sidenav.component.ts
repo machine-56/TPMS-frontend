@@ -47,8 +47,10 @@ export class AdminSidenavComponent implements OnInit {
   collapsed = false;
   screenWidth = 0;
   navData=navadminData;
+  role:any;
 
   ngOnInit(): void {
+    this.role=localStorage.getItem('role');
     this.screenWidth = window.innerWidth;
   }
 

@@ -67,7 +67,7 @@ export class AdminGenWorkorderComponent implements OnInit {
     this.isSubmitted = true;
     this.adminService.newWorkorder(this.workOrderForm.value);
     console.log("Called");    
-    alert("Success");
+    alert("Workorder Generated Successfully");
     this.router.navigate(['admin/workorder']);
     
   }

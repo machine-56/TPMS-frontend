@@ -31,4 +31,7 @@ export class PartnerService {
   invoiceFileUpload(data: any) {
     return this.http.post<any>(`${serverURL}/partner/multifiles`, data);
   }
+  getInvodata(data:any){
+    return this.http.get(`${serverURL}/partner/invoice/`+data)
+  }
 }
