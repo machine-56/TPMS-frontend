@@ -30,7 +30,6 @@ export class PartnerEditProfileComponent implements OnInit {
     this.user = localStorage.getItem("user");
     this.partnerService.getProfile(this.user).subscribe((data: any) => {
       console.log(data);
-      // this.profile = data;
       this.profile = JSON.parse(JSON.stringify(data));
     });
   }

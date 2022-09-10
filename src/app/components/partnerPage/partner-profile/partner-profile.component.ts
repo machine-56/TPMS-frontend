@@ -8,10 +8,6 @@ import { PartnerService } from 'src/app/services/partner.service';
   styleUrls: ['./partner-profile.component.css'],
 })
 export class PartnerProfileComponent implements OnInit {
-  // visible: boolean = true;
-  // inputType: boolean = true;
-  // editpage: boolean = true;
-  // hidepage: boolean = false;
   passw: boolean = true;
   user:any;
 

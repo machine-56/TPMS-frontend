@@ -10,9 +10,6 @@ export class LoginService {
   constructor(private http: HttpClient) {}
  
   loginFn(loginData: any) {
-    // console.log(`from service file: ${loginData}`);
-    // console.log(loginData.uname);
-    // console.log(loginData.pwd);
     return this.http.post<any>(`${serverURL}/login`, loginData);
   }
   loggedIn(){

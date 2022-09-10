@@ -14,23 +14,6 @@ export class AdminEditWorkorderComponent implements OnInit {
   workorderid=localStorage.getItem('woid-edit');
   role:any;
 
-  // workorder={
-  //   woid : '',
-  //   issue_date : '',
-  //   partner_name : '',
-  //   partner_id : '',
-  //   program_name : '',
-  //   traning_topics : '',
-  //   date_start : '',
-  //   date_end : '',
-  //   mode : '',
-  //   GSTno : '',
-  //   tax_type : '',
-  //   panNo : '',
-  //   amount : '',
-  //   payterms : '',
-  //   wo_status : '',
-  // }
   public workorder:any=[];
   constructor(private adminService: AdminService, private router: Router) { }
 

@@ -24,7 +24,6 @@ export class FinanceDashboardComponent implements OnInit {
     // checking for overdue
     this.financeService.getPayment().subscribe((data: any) => {
       this.payments = data;
-      // 
       for(let i=0;i<this.payments.length;i++ ){
         this.invodate=formatDate(this.payments[i].duedate,'dd-MM-yyyy',this.locale)
         this.testdate=formatDate(this.currentDateTime,'dd-MM-yyyy',this.locale)
